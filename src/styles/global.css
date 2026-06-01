@@ -383,3 +383,66 @@
 .font-display {
   font-family: var(--font-display);
 }
+
+/* ============================================
+   TRANSPARENT HEADER — adapts to dark hero
+   When at top: white text over dark background.
+   On scroll (.is-scrolled): default dark text.
+   ============================================ */
+#site-header.is-transparent {
+  /* Logo wordmark */
+  .header-title { color: #FFFFFF; }
+  .header-subtitle { color: rgba(255, 255, 255, 0.55); }
+
+  /* Nav links */
+  .nav-link { color: rgba(255, 255, 255, 0.7); }
+  .nav-link:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .nav-link.is-active { color: #FFFFFF; }
+  .nav-link.is-active span[aria-hidden="true"] { background-color: #FFFFFF; }
+
+  /* Divider */
+  .header-divider { background-color: rgba(255, 255, 255, 0.18); }
+
+  /* Social icons */
+  .social-icon { color: rgba(255, 255, 255, 0.65); }
+  .social-icon:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Mobile toggle */
+  .mobile-toggle:hover { background-color: rgba(255, 255, 255, 0.08); }
+  .mobile-toggle-icon { color: #FFFFFF; }
+
+  /* Logo hover glow */
+  .group:hover > div > div { background-color: rgba(255, 255, 255, 0.1) !important; }
+}
+
+#site-header.is-transparent.is-scrolled {
+  .header-title { color: #0F172A; }
+  .header-subtitle { color: #94A3B8; }
+
+  .nav-link { color: #64748B; }
+  .nav-link:hover {
+    color: #0F172A;
+    background-color: #F8FAFC;
+  }
+  .nav-link.is-active { color: #0F172A; }
+  .nav-link.is-active span[aria-hidden="true"] { background-color: var(--color-action); }
+
+  .header-divider { background-color: #E2E8F0; }
+
+  .social-icon { color: #94A3B8; }
+  .social-icon:hover {
+    color: #0F172A;
+    background-color: #F1F5F9;
+  }
+
+  .mobile-toggle:hover { background-color: #F1F5F9; }
+  .mobile-toggle-icon { color: #334155; }
+
+  .group:hover > div > div { background-color: transparent !important; }
+}

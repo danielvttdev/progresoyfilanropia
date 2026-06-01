@@ -9,9 +9,10 @@ interface Props {
   description: string;
   ogImage?: string;
   canonicalUrl?: string;
+  transparentHeader?: boolean;
 }
 
-const { title, description, ogImage, canonicalUrl } = Astro.props;
+const { title, description, ogImage, canonicalUrl, transparentHeader = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 const fullTitle = title === 'Inicio'
   ? `${siteConfig.name} — ${siteConfig.tagline}`
@@ -54,6 +55,9 @@ const canonical = canonicalUrl || new URL(currentPath, siteConfig.url).href;
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <meta name="theme-color" content="#1B3A7A" />
 
   <!-- Schema.org Organization -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -81,10 +85,10 @@ const canonical = canonicalUrl || new URL(currentPath, siteConfig.url).href;
   </a>
 
   <!-- Header -->
-  <Header currentPath={currentPath} />
+  <Header currentPath={currentPath} transparent={transparentHeader} />
 
   <!-- Main content wrapper -->
-  <main id="main-content" class="pt-18">
+  <main id="main-content" class:list={[transparentHeader ? 'pt-0' : 'pt-18']}>
     <slot />
   </main>
 
@@ -99,15 +103,23 @@ const canonical = canonicalUrl || new URL(currentPath, siteConfig.url).href;
     const headerBg = document.getElementById('header-bg');
     const header = document.getElementById('site-header');
     if (headerBg && header) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-          headerBg.classList.add('bg-white/95', 'backdrop-blur-xl', 'border-slate-200/80', 'shadow-sm');
-          headerBg.classList.remove('bg-white/0', 'backdrop-blur-0', 'border-transparent');
-        } else {
-          headerBg.classList.remove('bg-white/95', 'backdrop-blur-xl', 'border-slate-200/80', 'shadow-sm');
-          headerBg.classList.add('bg-white/0', 'backdrop-blur-0', 'border-transparent');
+      const isTransparent = header.dataset.transparent === 'true';
+
+      const setScrolled = (scrolled) => {
+        if (isTransparent) {
+          if (scrolled) {
+            headerBg.classList.add('bg-white/65', 'backdrop-blur-xl', 'border-slate-200/80', 'shadow-sm');
+            headerBg.classList.remove('bg-white/0', 'backdrop-blur-0', 'border-transparent');
+          } else {
+            headerBg.classList.remove('bg-white/65', 'backdrop-blur-xl', 'border-slate-200/80', 'shadow-sm');
+            headerBg.classList.add('bg-white/0', 'backdrop-blur-0', 'border-transparent');
+          }
+          header.classList.toggle('is-scrolled', scrolled);
         }
-      });
+      };
+
+      setScrolled(window.scrollY > 20);
+      window.addEventListener('scroll', () => setScrolled(window.scrollY > 20), { passive: true });
     }
 
     // ---- Mobile menu toggle ----
