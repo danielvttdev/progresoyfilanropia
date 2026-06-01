@@ -30,31 +30,49 @@ const valores = [
     title: 'Libertad',
     description: 'Defendemos la libertad individual y colectiva como base de toda convivencia democrática y del desarrollo humano integral.',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m-8-9H3m18 0h-1m-2.636-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>`,
+    impact: 'Impulsamos la autonomía de los ciudadanos en la gestión de sus propios proyectos y emprendimientos de impacto comunitario.',
+    kpi: '100% Autogestión cívica',
+    color: 'from-blue-500/20 to-indigo-500/10',
   },
   {
     title: 'Igualdad',
     description: 'Trabajamos por una sociedad donde todas las personas tengan las mismas oportunidades de desarrollo y participación.',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 18h18" /></svg>`,
+    impact: 'Aseguramos acceso libre y equitativo a todas nuestras actividades formativas, de debate cívico y de contención social barrial.',
+    kpi: 'Acceso universal y plural',
+    color: 'from-teal-500/20 to-emerald-500/10',
   },
   {
     title: 'Fraternidad',
     description: 'Creemos en los lazos fraternos como motor de la cooperación, el cuidado mutuo y la construcción de comunidad.',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    impact: 'Fomentamos la ayuda mutua voluntaria y el asociacionismo vecinal coordinado ante problemáticas sanitarias y económicas.',
+    kpi: '+1.200 Vecinos vinculados',
+    color: 'from-rose-500/20 to-orange-500/10',
   },
   {
     title: 'Transparencia',
     description: 'Promovemos una gestión abierta, con rendición de cuentas permanente y comunicación clara de nuestras acciones y recursos.',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    impact: 'Publicamos balances anuales, actas constitutivas y detalles contables auditados por profesionales del tercer sector.',
+    kpi: 'Balances 100% públicos',
+    color: 'from-cyan-500/20 to-sky-500/10',
   },
   {
     title: 'Libertad de expresión',
     description: 'Valoramos el diálogo abierto y el libre intercambio de ideas como pilares de una democracia sana y participativa.',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>`,
+    impact: 'Impulsamos debates plurales, foros vecinales abiertos y transmisiones en streaming que integran todas las opiniones ciudadanas.',
+    kpi: 'Diálogo democrático',
+    color: 'from-violet-500/20 to-purple-500/10',
   },
   {
     title: 'Respeto por todas las opiniones',
     description: 'Creamos espacios donde cada voz es escuchada con atención, promoviendo la pluralidad como riqueza colectiva.',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>`,
+    impact: 'Articulamos mesas de concertación pluralista y democrática para consensuar soluciones territoriales de forma participativa.',
+    kpi: 'Pluralismo activo',
+    color: 'from-amber-500/20 to-yellow-500/10',
   },
 ];
 
@@ -209,26 +227,183 @@ const categoryLabels: Record<string, string> = {
     </div>
   </section>
 
-  <!-- 4. VALORES INSTITUCIONALES -->
+  <!-- 4. VALORES INSTITUCIONALES (Minimalist Interactive Dashboard) -->
   <section class="bg-slate-50 py-20 md:py-28" data-animate>
     <div class="max-w-7xl mx-auto px-6">
       <SectionTitle
-        title="Nuestros valores"
-        subtitle="Los principios que guían cada una de nuestras acciones y decisiones institucionales."
+        title="Nuestros valores cívicos"
+        subtitle="Un marco ético en acción constante. Seleccioná un pilar para ver cómo orienta nuestro trabajo."
         align="center"
       />
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {valores.map((valor) => (
-          <ValueCard
-            title={valor.title}
-            description={valor.description}
-            icon={valor.icon}
-          />
-        ))}
+      <!-- Dashboard Wrapper -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mt-12 items-stretch">
+        
+        <!-- Left Side: Interactive Menu List (Responsive: Horizontal scroll on mobile, Vertical list on desktop) -->
+        <div class="lg:col-span-4 flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-2.5 lg:gap-3 hide-scrollbar snap-x scroll-smooth select-none">
+          {valores.map((valor, idx) => (
+            <button
+              type="button"
+              class={`value-tab-btn flex items-center justify-between p-3.5 lg:p-4.5 rounded-xl border text-left transition-all duration-200 cursor-pointer snap-start shrink-0 whitespace-nowrap lg:whitespace-normal ${
+                idx === 0
+                  ? 'bg-white border-action/30 shadow-sm text-slate-900 ring-2 ring-action/5'
+                  : 'bg-white/50 border-slate-200/60 text-slate-500 hover:bg-white hover:border-slate-350 hover:shadow-xs'
+              }`}
+              data-value-idx={idx}
+            >
+              <div class="flex items-center gap-3 lg:gap-3.5">
+                <div class={`w-8 h-8 lg:w-9 lg:h-9 rounded-lg flex items-center justify-center transition-colors ${
+                  idx === 0 ? 'bg-action-light text-action' : 'bg-slate-100 text-slate-500'
+                } value-tab-icon-wrapper`}>
+                  <Fragment set:html={valor.icon} />
+                </div>
+                <span class="font-bold text-xs lg:text-sm tracking-wide">{valor.title}</span>
+              </div>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class={`hidden lg:block w-3.5 h-3.5 transition-transform duration-200 ${idx === 0 ? 'translate-x-0.5 text-action' : 'text-slate-400'} value-tab-arrow`}
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                stroke-width="2.5"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          ))}
+        </div>
+
+        <!-- Right Side: Detail Panel (8/12 columns) -->
+        <div class="lg:col-span-8">
+          <div 
+            id="value-detail-card"
+            class="h-full bg-white border border-slate-200/80 rounded-2.5xl p-6 lg:p-8 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[340px] lg:min-h-[360px] transition-all duration-300"
+          >
+            <!-- Lighter, ultra-minimalist glowing backdrop spot -->
+            <div 
+              id="value-detail-glow"
+              class="absolute top-[-30%] right-[-20%] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-500/10 to-transparent blur-[100px] transition-all duration-500 pointer-events-none"
+            ></div>
+
+            <!-- Card Header -->
+            <div class="relative z-10">
+              <div class="flex items-center justify-between gap-4 border-b border-slate-105 pb-4">
+                <div class="flex items-center gap-3">
+                  <div 
+                    id="value-detail-icon"
+                    class="w-11 h-11 bg-action-light text-action rounded-xl flex items-center justify-center"
+                  >
+                    <Fragment set:html={valores[0].icon} />
+                  </div>
+                  <div class="text-left">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Pilar Cívico</span>
+                    <h3 id="value-detail-title" class="text-xl font-bold text-slate-900 mt-0.5 tracking-tight">{valores[0].title}</h3>
+                  </div>
+                </div>
+                
+                <!-- KPI Status Pill -->
+                <div class="px-3 py-1 bg-slate-50 border border-slate-200/60 rounded-full text-[10px] font-bold text-slate-600 shadow-2xs" id="value-detail-kpi">
+                  {valores[0].kpi}
+                </div>
+              </div>
+
+              <!-- Main Content Body -->
+              <div class="mt-6 space-y-5 text-left">
+                <div>
+                  <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Definición</h4>
+                  <p id="value-detail-desc" class="text-slate-600 leading-relaxed text-sm lg:text-base">
+                    {valores[0].description}
+                  </p>
+                </div>
+
+                <div>
+                  <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Acción cívica</h4>
+                  <p id="value-detail-impact" class="text-slate-550 leading-relaxed text-xs lg:text-sm">
+                    {valores[0].impact}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Minimalist Card Footer -->
+            <div class="relative z-10 border-t border-slate-100 pt-5 mt-6 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-[10px] font-bold text-slate-400 tracking-wide">Auditoría y control ciudadano permanente</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <!-- Client-side Interactive Script -->
+  <script is:inline define:vars={{ valores }}>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabBtns = document.querySelectorAll('.value-tab-btn');
+      const detailCard = document.getElementById('value-detail-card');
+      const glowSpot = document.getElementById('value-detail-glow');
+      const detailIcon = document.getElementById('value-detail-icon');
+      const detailTitle = document.getElementById('value-detail-title');
+      const detailDesc = document.getElementById('value-detail-desc');
+      const detailImpact = document.getElementById('value-detail-impact');
+      const detailKpi = document.getElementById('value-detail-kpi');
+
+      if (!tabBtns.length || !detailCard) return;
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.getAttribute('data-value-idx') || '0', 10);
+          const data = valores[idx];
+
+          if (!data) return;
+
+          // 1. Update Active states in Left Menu list
+          tabBtns.forEach((b) => {
+            b.classList.remove('bg-white', 'border-action/30', 'shadow-md', 'text-slate-900', 'ring-2', 'ring-action/5');
+            b.classList.add('bg-white/50', 'border-slate-200/60', 'text-slate-500');
+            b.querySelector('.value-tab-icon-wrapper').classList.remove('bg-action-light', 'text-action');
+            b.querySelector('.value-tab-icon-wrapper').classList.add('bg-slate-100', 'text-slate-500');
+            b.querySelector('.value-tab-arrow').classList.remove('translate-x-0.5', 'text-action');
+            b.querySelector('.value-tab-arrow').classList.add('text-slate-400');
+          });
+
+          btn.classList.remove('bg-white/50', 'border-slate-200/60', 'text-slate-500');
+          btn.classList.add('bg-white', 'border-action/30', 'shadow-sm', 'text-slate-900', 'ring-2', 'ring-action/5');
+          btn.querySelector('.value-tab-icon-wrapper').classList.remove('bg-slate-100', 'text-slate-500');
+          btn.querySelector('.value-tab-icon-wrapper').classList.add('bg-action-light', 'text-action');
+          btn.querySelector('.value-tab-arrow').classList.add('translate-x-0.5', 'text-action');
+          btn.querySelector('.value-tab-arrow').classList.remove('text-slate-400');
+
+          // 2. Play transition animation in detail card
+          detailCard.style.opacity = '0';
+          detailCard.style.transform = 'translateY(4px)';
+
+          setTimeout(() => {
+            // Update Card Details
+            detailTitle.textContent = data.title;
+            detailDesc.textContent = data.description;
+            detailImpact.textContent = data.impact;
+            detailKpi.textContent = data.kpi;
+            detailIcon.innerHTML = data.icon;
+
+            // Update glowing color class
+            glowSpot.className = `absolute top-[-30%] right-[-20%] w-[300px] h-[300px] rounded-full bg-gradient-to-br ${data.color} blur-[100px] transition-all duration-500 pointer-events-none`;
+
+            // Fade in card content
+            detailCard.style.opacity = '1';
+            detailCard.style.transform = 'translateY(0)';
+          }, 100);
+        });
+      });
+    });
+  </script>
 
   <!-- 7. PROYECTOS DESTACADOS -->
   <section class="bg-white py-20 md:py-28" data-animate>
