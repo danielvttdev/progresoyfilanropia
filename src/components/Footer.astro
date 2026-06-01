@@ -1,0 +1,83 @@
+---
+import { siteConfig } from '../data/site';
+import { footerNav } from '../data/navigation';
+---
+
+<footer class="bg-institutional text-slate-300" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <!-- Top: Identity -->
+    <div class="mb-12">
+      <a href="/" class="flex items-center gap-3 group" aria-label="Ir al inicio">
+        <img
+          src="/images/logo progresoyfilantropia.png"
+          alt="Logo Progreso y Filantropía"
+          class="h-16 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-102"
+        />
+        <span class="text-white font-bold tracking-tight">
+          Progreso y Filantropía
+        </span>
+      </a>
+      <p class="text-slate-400 text-sm mt-3 max-w-md">
+        {siteConfig.description}
+      </p>
+    </div>
+
+    <!-- Navigation Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-gray-800">
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Institucional</h3>
+        <ul class="space-y-2">
+          {footerNav.institucional.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-slate-400 hover:text-white transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Recursos</h3>
+        <ul class="space-y-2">
+          {footerNav.recursos.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-slate-400 hover:text-white transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Legal</h3>
+        <ul class="space-y-2">
+          {footerNav.legal.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-slate-400 hover:text-white transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Contacto</h3>
+        <ul class="space-y-2">
+          <li class="text-sm text-slate-400">{siteConfig.email}</li>
+          <li class="text-sm text-slate-400">{siteConfig.phone}</li>
+          <li class="text-sm text-slate-400">{siteConfig.address}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-500">
+        &copy; {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
+      </p>
+      <p class="text-xs text-slate-500">
+        Personería Jurídica {siteConfig.personeriaJuridica}
+      </p>
+    </div>
+  </div>
+</footer>

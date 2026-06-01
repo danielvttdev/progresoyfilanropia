@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import DonationCTA from '../components/DonationCTA.astro';
+
+const informes = [
+  {
+    title: 'Memoria anual 2025',
+    status: 'Próximamente',
+    description: 'Resumen detallado de todos los proyectos territoriales, voluntariado, alianzas e impacto de campañas humanitarias.',
+  },
+  {
+    title: 'Balance social 2025',
+    status: 'Próximamente',
+    description: 'Auditoría económica sobre el origen y la asignación detallada de cada donación de la ciudadanía.',
+  },
+  {
+    title: 'Informe de actividades Q1 2026',
+    status: 'Próximamente',
+    description: 'Reporte trimestral preliminar de los talleres educativos y programas de asistencia sanitaria activos.',
+  },
+];
+
+const documentos = [
+  { label: 'Estatuto social de la Fundación', status: 'Disponible a solicitud' },
+  { label: 'Acta constitutiva de la Fundación', status: 'Disponible a solicitud' },
+  { label: 'Resolución de Personería Jurídica', status: 'Disponible a solicitud' },
+];
+---
+
+<BaseLayout
+  title="Transparencia"
+  description="Fundación Progreso y Filantropía Social: rendición de cuentas pública, informes de actividades y balances financieros."
+>
+  <!-- Hero -->
+  <Hero
+    variant="page"
+    title="Transparencia para construir confianza"
+    subtitle="La rendición de cuentas sistemática y la claridad administrativa son los pilares éticos de nuestra labor."
+  />
+
+  <!-- Compromiso -->
+  <section class="bg-white py-16 md:py-24" data-animate>
+    <div class="max-w-4xl mx-auto px-6">
+      <SectionTitle
+        title="Nuestro compromiso con la verdad"
+        accentLine={true}
+        align="left"
+      />
+      <div class="prose max-w-none text-slate-600 leading-relaxed text-base md:text-lg space-y-6">
+        <p>
+          En el tercer sector, la confianza de la sociedad civil es el único activo insustituible. En <strong>Progreso y Filantropía Social</strong>, entendemos que la transparencia no es una opción de comunicación institucional ni un cumplimiento reglamentario secundario, sino una <strong>obligación ética fundamental</strong>.
+        </p>
+        <p>
+          Nuestra labor se financia mediante el compromiso económico y el esfuerzo voluntario de personas como vos. Por este motivo, garantizamos mecanismos rigurosos de rendición de cuentas abierta para asegurar que cada recurso se destine directa y eficientemente a los fines que fundamentan la existencia de nuestra fundación.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rendición de cuentas -->
+  <section class="bg-slate-50 py-20 md:py-28" data-animate>
+    <div class="max-w-4xl mx-auto px-6">
+      <SectionTitle
+        title="Cómo rendimos cuentas"
+        align="center"
+      />
+      <div class="prose max-w-none text-slate-600 leading-relaxed text-base space-y-6 text-center">
+        <p>
+          Nuestros procesos administrativos están sujetos a una doble vía de control interno e institucional. Mantenemos actualizados los libros contables reglamentarios y los registros de impacto de cada área. 
+        </p>
+        <p>
+          Cada trimestre publicamos informes de avance cualitativo en redes sociales, y consolidamos anualmente un Balance Social completo, auditado externamente, donde se detalla la procedencia y aplicación del 100% de los fondos captados.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informes de actividades -->
+  <section class="bg-white py-20 md:py-28" data-animate>
+    <div class="max-w-7xl mx-auto px-6">
+      <SectionTitle
+        title="Informes y memorias"
+        subtitle="Consultá y descargá nuestros documentos periódicos de gestión y auditoría financiera."
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {informes.map((inf) => (
+          <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-6">
+                <!-- Document icon -->
+                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 text-slate-400" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-500">
+                  {inf.status}
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">{inf.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-8">{inf.description}</p>
+            </div>
+            <div>
+              <button
+                disabled
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-50 text-slate-400 text-sm font-semibold rounded-lg border border-slate-150 cursor-not-allowed"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Descargar PDF
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Uso de recursos -->
+  <section class="bg-slate-50 py-20 md:py-28" data-animate>
+    <div class="max-w-4xl mx-auto px-6">
+      <SectionTitle
+        title="Uso proporcional de los recursos"
+        align="center"
+      />
+      <div class="prose max-w-none text-slate-600 leading-relaxed text-base space-y-6">
+        <p class="text-center">
+          Proyectamos mantener una distribución de recursos eficiente, orientando la mayor proporción de ingresos a programas territoriales.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 text-center shadow-sm">
+            <span class="text-3xl font-extrabold text-action block">80%</span>
+            <span class="text-sm font-bold text-slate-800 uppercase tracking-wider block mt-2">Programas sociales</span>
+            <span class="text-xs text-slate-500 block mt-1">Impacto barrial directo</span>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 text-center shadow-sm">
+            <span class="text-3xl font-extrabold text-slate-700 block">15%</span>
+            <span class="text-sm font-bold text-slate-800 uppercase tracking-wider block mt-2">Administración</span>
+            <span class="text-xs text-slate-500 block mt-1">Sostenibilidad y gestión</span>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 text-center shadow-sm">
+            <span class="text-3xl font-extrabold text-slate-600 block">5%</span>
+            <span class="text-sm font-bold text-slate-800 uppercase tracking-wider block mt-2">Difusión</span>
+            <span class="text-xs text-slate-500 block mt-1">Campañas de incidencia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentos institucionales -->
+  <section class="bg-white py-20 md:py-28" data-animate>
+    <div class="max-w-3xl mx-auto px-6">
+      <SectionTitle
+        title="Documentación constitutiva"
+        subtitle="Nuestros documentos legales están a disposición de cualquier persona u organización que los solicite."
+        align="center"
+      />
+
+      <div class="space-y-3 mt-8">
+        {documentos.map((doc) => (
+          <div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-slate-100/50 transition-colors duration-200">
+            <span class="text-sm font-semibold text-slate-750">{doc.label}</span>
+            <span class="text-xs font-semibold px-3 py-1 bg-white border border-slate-200 rounded-full text-slate-500">
+              {doc.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 py-20 md:py-28" data-animate>
+    <div class="max-w-3xl mx-auto px-6">
+      <SectionTitle
+        title="Preguntas frecuentes sobre nuestra administración"
+        align="center"
+      />
+
+      <div class="space-y-4 mt-8">
+        <details class="group border border-slate-200 rounded-2xl bg-white p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer hover:border-slate-350 transition-colors duration-200">
+          <summary class="flex items-center justify-between focus:outline-none">
+            <h3 class="text-base font-semibold text-slate-900 pr-4">¿Cómo se garantiza la independencia política de la fundación?</h3>
+            <span class="ml-1.5 flex-shrink-0 rounded-full bg-slate-50 p-1.5 text-slate-900 group-open:rotate-180 transition-transform duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+            Nuestro estatuto establece la prohibición absoluta de recibir financiamiento de partidos políticos, sindicatos u organismos de carácter partidario. Nuestra gobernanza es autónoma, democrática e independiente, sostenida exclusivamente por ciudadanos civiles y alianzas transparentes del tercer sector o el ámbito académico.
+          </p>
+        </details>
+
+        <details class="group border border-slate-200 rounded-2xl bg-white p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer hover:border-slate-350 transition-colors duration-200">
+          <summary class="flex items-center justify-between focus:outline-none">
+            <h3 class="text-base font-semibold text-slate-900 pr-4">¿Puedo solicitar informes o auditorías específicas?</h3>
+            <span class="ml-1.5 flex-shrink-0 rounded-full bg-slate-50 p-1.5 text-slate-900 group-open:rotate-180 transition-transform duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+            Sí. Cualquier donante, aliado institucional o ciudadano interesado puede solicitar acceso a copias de estatutos, personerías o balances consolidados. Para canalizar estas solicitudes, comunícate mediante nuestro formulario general en la página de Contacto.
+          </p>
+        </details>
+
+        <details class="group border border-slate-200 rounded-2xl bg-white p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer hover:border-slate-350 transition-colors duration-200">
+          <summary class="flex items-center justify-between focus:outline-none">
+            <h3 class="text-base font-semibold text-slate-900 pr-4">¿Quién audita las cuentas de la fundación?</h3>
+            <span class="ml-1.5 flex-shrink-0 rounded-full bg-slate-50 p-1.5 text-slate-900 group-open:rotate-180 transition-transform duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+            Nuestros estados financieros son visados por profesionales contables independientes debidamente matriculados, y presentados anualmente ante la Inspección General de Personas Jurídicas para validar el cumplimiento riguroso de nuestro objeto social no lucrativo.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-white py-20 border-t border-slate-100" data-animate>
+    <div class="max-w-4xl mx-auto px-6">
+      <DonationCTA variant="inline" />
+    </div>
+  </section>
+</BaseLayout>

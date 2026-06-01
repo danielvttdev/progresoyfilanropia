@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href?: string;
+}
+
+const { title, description, icon, href } = Astro.props;
+const CardTag = href ? 'a' : 'div';
+const extraClasses = href ? 'group cursor-pointer hover:border-action-hover' : '';
+---
+
+<CardTag
+  href={href}
+  class={`block bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${extraClasses}`}
+>
+  <div class="w-12 h-12 rounded-xl bg-action-light flex items-center justify-center text-action transition-colors duration-300 group-hover:bg-action group-hover:text-white" aria-hidden="true">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="text-base font-semibold text-slate-900 mt-4 group-hover:text-action transition-colors duration-200">
+    {title}
+  </h3>
+  <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+    {description}
+  </p>
+</CardTag>

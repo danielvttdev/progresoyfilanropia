@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ValueCard from '../components/ValueCard.astro';
+import DonationCTA from '../components/DonationCTA.astro';
+
+const activos = [
+  {
+    title: 'Programa de acompañamiento comunitario',
+    description: 'Equipos territoriales multidisciplinarios que articulan ayuda directa, contención alimentaria primaria y apoyo integral en situaciones críticas.',
+    category: 'Sanitaria',
+    status: 'Activo',
+    image: '/images/projects/acompanamiento.png',
+  },
+  {
+    title: 'Talleres de formación ciudadana',
+    description: 'Espacios sistemáticos de formación en participación democrática, herramientas jurídicas ciudadanas y talleres prácticos vecinales.',
+    category: 'Educativa',
+    status: 'Activo',
+    image: '/images/projects/talleres.png',
+  },
+  {
+    title: 'Programa de streaming Comunidad Global',
+    description: 'Espacio audiovisual de entrevistas y debates que rescata y difunde las experiencias de vida, resiliencia, aportes culturales y emprendimientos de migrantes de diversas partes del mundo.',
+    category: 'Cultural',
+    status: 'Activo',
+    image: '/images/projects/streaming.png',
+  },
+];
+
+const enDesarrollo = [
+  {
+    title: 'Observatorio de participación ciudadana',
+    description: 'Plataforma abierta de seguimiento y análisis de la calidad democrática, deliberación pública y participación vecinal.',
+    category: 'Cultural',
+    status: 'En desarrollo',
+  },
+  {
+    title: 'Programa de sustentabilidad comunitaria',
+    description: 'Talleres prácticos de huertas urbanas, tratamiento selectivo de residuos barriales y concienciación del cuidado medioambiental.',
+    category: 'Ambiental',
+    status: 'En desarrollo',
+  },
+];
+
+const areasDeImpacto = [
+  { label: 'Sanitaria🏥' },
+  { label: 'Económica📊' },
+  { label: 'Cultural🎭' },
+  { label: 'Ambiental🌱' },
+  { label: 'Científica🔬' },
+  { label: 'Educativa📚' },
+];
+
+const formasDeParticipar = [
+  {
+    title: 'Voluntariado activo',
+    description: 'Súmate a nuestros equipos territoriales para participar directamente en el diseño e implementación de proyectos barriales.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+  },
+  {
+    title: 'Alianzas institucionales',
+    description: 'Buscamos articular con universidades, ONG, cámaras de comercio y comisiones vecinales para potenciar el impacto colectivo.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>`,
+  },
+  {
+    title: 'Donaciones y recursos',
+    description: 'Los aportes económicos y materiales directos nos permiten mantener nuestra total independencia organizativa.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`,
+  },
+];
+---
+
+<BaseLayout
+  title="Proyectos"
+  description="Conocé los proyectos de la Fundación Progreso y Filantropía Social: iniciativas en salud, educación, economía social, cultura y medioambiente."
+>
+  <!-- Hero -->
+  <Hero
+    variant="page"
+    title="Proyectos para fortalecer la participación y el bienestar social"
+    subtitle="Descubrí nuestras líneas de acción concretas en el territorio y sumate como un actor fundamental del cambio."
+  />
+
+  <!-- Introducción -->
+  <section class="bg-white py-16 md:py-24" data-animate>
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="prose max-w-none text-slate-600 leading-relaxed text-base md:text-lg">
+        <p>
+          En <strong>Progreso y Filantropía Social</strong> concebimos los proyectos no como fines en sí mismos, sino como las manifestaciones prácticas y medibles de nuestros valores y misión institucional. Cada programa surge de un relevamiento directo de necesidades vecinales y se planifica bajo criterios estrictos de rigor técnico, optimización de recursos y sustentabilidad temporal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos Activos -->
+  <section class="bg-slate-50 py-20 md:py-28" data-animate>
+    <div class="max-w-7xl mx-auto px-6">
+      <SectionTitle
+        title="Proyectos en ejecución"
+        subtitle="Iniciativas territoriales que actualmente están beneficiando a comunidades de la región."
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {activos.map((p) => (
+          <ProjectCard
+            title={p.title}
+            description={p.description}
+            category={p.category}
+            status={p.status}
+            image={p.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos en Desarrollo -->
+  <section class="bg-white py-20 md:py-28" data-animate>
+    <div class="max-w-7xl mx-auto px-6">
+      <SectionTitle
+        title="Proyectos en etapa de desarrollo"
+        subtitle="Iniciativas en fase de diseño técnico y búsqueda de alianzas para su pronta implementación."
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {enDesarrollo.map((p) => (
+          <ProjectCard
+            title={p.title}
+            description={p.description}
+            category={p.category}
+            status={p.status}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas de impacto -->
+  <section class="bg-slate-50 py-20 md:py-28" data-animate>
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <SectionTitle
+        title="Áreas de impacto social"
+        subtitle="Nuestros esfuerzos institucionales se articulan en torno a seis ejes de acción clave."
+        align="center"
+      />
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8 max-w-4xl mx-auto">
+        {areasDeImpacto.map((area) => (
+          <div class="inline-flex items-center gap-2.5 px-6 py-4 bg-white border border-slate-200 rounded-full shadow-sm hover:shadow-md hover:border-slate-350 transition-all duration-300">
+            <span class="text-sm font-semibold text-slate-800 tracking-wide">{area.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo participar -->
+  <section class="bg-white py-20 md:py-28" data-animate>
+    <div class="max-w-7xl mx-auto px-6">
+      <SectionTitle
+        title="Cómo podés involucrarte"
+        subtitle="Existen múltiples formas de sumar tu voluntad y capacidades a nuestras causas."
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {formasDeParticipar.map((forma) => (
+          <ValueCard
+            title={forma.title}
+            description={forma.description}
+            icon={forma.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <DonationCTA variant="banner" />
+</BaseLayout>

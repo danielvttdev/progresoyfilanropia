@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, ogImage, canonicalUrl } = Astro.props;
+const currentPath = Astro.url.pathname;
+const fullTitle = title === 'Inicio'
+  ? `${siteConfig.name} — ${siteConfig.tagline}`
+  : `${title} | ${siteConfig.name}`;
+const ogImg = ogImage || siteConfig.defaultOgImage;
+const canonical = canonicalUrl || new URL(currentPath, siteConfig.url).href;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImg} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:locale" content={siteConfig.locale} />
+  <meta property="og:site_name" content={siteConfig.name} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImg} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": siteConfig.name,
+    "url": siteConfig.url,
+    "description": siteConfig.description,
+    "email": siteConfig.email,
+    "telephone": siteConfig.phone,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": siteConfig.address
+    }
+  })} />
+</head>
+<body class="bg-base text-slate-700 antialiased">
+
+  <!-- Skip to content -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-action font-semibold"
+  >
+    Ir al contenido principal
+  </a>
+
+  <!-- Header -->
+  <Header currentPath={currentPath} />
+
+  <!-- Main content wrapper -->
+  <main id="main-content" class="pt-16">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- ============================================
+       SCRIPTS
+       ============================================ -->
+  <script>
+    // ---- Header scroll effect ----
+    const header = document.getElementById('site-header');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('bg-white/95', 'border-slate-200', 'shadow-sm');
+          header.classList.remove('bg-white/80', 'border-transparent');
+        } else {
+          header.classList.remove('bg-white/95', 'border-slate-200', 'shadow-sm');
+          header.classList.add('bg-white/80', 'border-transparent');
+        }
+      });
+    }
+
+    // ---- Mobile menu toggle ----
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    if (toggle && menu && iconOpen && iconClose) {
+      toggle.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('translate-x-full');
+        menu.classList.toggle('translate-x-full', isOpen);
+        menu.classList.toggle('translate-x-0', !isOpen);
+        menu.setAttribute('aria-hidden', String(isOpen));
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        iconOpen.classList.toggle('hidden', !isOpen);
+        iconClose.classList.toggle('hidden', isOpen);
+        document.body.classList.toggle('overflow-hidden', !isOpen);
+      });
+    }
+
+    // ---- Scroll reveal ----
+    const animateObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up');
+          animateObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      animateObserver.observe(el);
+    });
+  </script>
+</body>
+</html>
