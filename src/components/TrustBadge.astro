@@ -9,13 +9,33 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+const duplicated = [...items, ...items, ...items, ...items];
 ---
 
-<div class="flex flex-wrap justify-center gap-6 md:gap-10 py-2">
-  {items.map((item) => (
-    <div class="flex items-center gap-2.5 text-slate-600 bg-slate-50/50 px-4 py-2 rounded-full border border-slate-100 hover:bg-slate-50 transition-colors duration-200">
-      <span class="text-lg" aria-hidden="true">{item.icon}</span>
-      <span class="text-xs md:text-sm font-bold tracking-wider uppercase text-slate-800">{item.label}</span>
-    </div>
-  ))}
+<div class="relative overflow-hidden" aria-label="Principios institucionales">
+  <!-- Fade edges -->
+  <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="flex animate-marquee-sm">
+    {duplicated.map((item) => (
+      <div class="flex items-center gap-2.5 mx-3 px-5 py-2.5 rounded-full border border-slate-200/80 bg-white/90 backdrop-blur-sm whitespace-nowrap hover:border-slate-300 hover:shadow-sm transition-all duration-300 shrink-0 group">
+        <span class="text-base group-hover:scale-110 transition-transform duration-300" aria-hidden="true">{item.icon}</span>
+        <span class="text-[11px] font-bold tracking-[0.15em] uppercase text-slate-700 group-hover:text-slate-900 transition-colors duration-300">{item.label}</span>
+      </div>
+    ))}
+  </div>
 </div>
+
+<style>
+  .animate-marquee-sm {
+    animation: marquee 40s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee-sm {
+      animation: none !important;
+    }
+  }
+</style>

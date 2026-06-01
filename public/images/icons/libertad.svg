@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Sleek rounded square background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Liberty Symbol: Dynamic rising bird breaking free -->
+  <path d="M26 44c4-2 9-1 12 2s5 9 1 14c8-3 13-10 13-17 0-9-7-16-16-16-5 0-10 2-13 6 2-1 4-1 6 0 5 2 7 7 4 12-2-4-5-3-6-1z" fill="url(#neutral-grad-subtle)" opacity="0.3"/>
+  <path d="M30 36c5-6 12-10 20-10 7 0 14 5 14 13 0 11-9 19-19 19-4 0-8-1-11-4 4 1 8 0 11-3 5-4 5-11 0-16-3 4-7 4-9 2-2-2-4-2-6-1z" fill="url(#neutral-grad)"/>
+  <circle cx="44" cy="38" r="1.5" fill="white" opacity="0.8"/>
+  <!-- Decorative ground / horizon line -->
+  <path d="M24 62h32" stroke="url(#neutral-grad-subtle)" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Equality Symbol: Balance Scale -->
+  <!-- Stand & Base -->
+  <path d="M40 20v38" stroke="url(#neutral-grad)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M28 58h24" stroke="url(#neutral-grad)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M34 22h12" stroke="url(#neutral-grad-subtle)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Crossbar (Perfect Balance) -->
+  <path d="M24 28h32" stroke="url(#neutral-grad)" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Hanging plates -->
+  <path d="M24 28l-5 16h10l-5-16z" fill="url(#neutral-grad-subtle)" opacity="0.3"/>
+  <path d="M56 28l-5 16h10l-5-16z" fill="url(#neutral-grad-subtle)" opacity="0.3"/>
+  
+  <!-- Plates baseline -->
+  <path d="M16 44h16" stroke="url(#neutral-grad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M48 44h16" stroke="url(#neutral-grad)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Equal sign in center as a subtle detail -->
+  <path d="M37 38h6M37 42h6" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+</svg>

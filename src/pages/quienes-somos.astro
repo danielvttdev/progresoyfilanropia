@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
-import ValueCard from '../components/ValueCard.astro';
 import TrustBadge from '../components/TrustBadge.astro';
 import DonationCTA from '../components/DonationCTA.astro';
 
@@ -18,42 +17,65 @@ const valores = [
   {
     title: 'Libertad',
     description: 'Defendemos la libertad individual y colectiva como base de toda convivencia democrática y del desarrollo humano integral.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m-8-9H3m18 0h-1m-2.636-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>`,
+    image: '/images/icons/libertad.svg',
   },
   {
     title: 'Igualdad',
     description: 'Trabajamos por una sociedad donde todas las personas tengan las mismas oportunidades de desarrollo y participación.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 18h18" /></svg>`,
+    image: '/images/icons/igualdad.svg',
   },
   {
     title: 'Fraternidad',
     description: 'Creemos en los lazos fraternos como motor de la cooperación, el cuidado mutuo y la construcción de comunidad.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    image: '/images/icons/fraternidad.svg',
   },
   {
     title: 'Transparencia',
     description: 'Promovemos una gestión abierta, con rendición de cuentas permanente y comunicación clara de nuestras acciones y recursos.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    image: '/images/icons/transparencia.svg',
   },
   {
     title: 'Libertad de expresión',
     description: 'Valoramos el diálogo abierto y el libre intercambio de ideas como pilares de una democracia sana y participativa.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>`,
+    image: '/images/icons/expresion.svg',
   },
   {
     title: 'Respeto por opiniones',
     description: 'Creamos espacios donde cada voz es escuchada con atención, promoviendo la pluralidad como riqueza colectiva.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg>`,
+    image: '/images/icons/respeto.svg',
   },
   {
     title: 'Cooperación',
     description: 'Buscamos la articulación horizontal con otras organizaciones civiles, fundaciones y entidades para potenciar el alcance social.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    image: '/images/icons/cooperacion.svg',
   },
   {
     title: 'Compromiso comunitario',
     description: 'Enraizamos cada iniciativa en las necesidades del territorio, construyendo desde y con los propios vecinos.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
+    image: '/images/icons/compromiso.svg',
+  },
+];
+
+const pasosDeTrabajo = [
+  {
+    step: '01',
+    title: 'Diagnóstico territorial',
+    description: 'Escuchamos y analizamos las necesidades del territorio junto con los vecinos y organizaciones locales.',
+  },
+  {
+    step: '02',
+    title: 'Articulación en red',
+    description: 'Vinculamos universidades, asociaciones civiles y entidades para construir respuestas colectivas.',
+  },
+  {
+    step: '03',
+    title: 'Ejecución horizontal',
+    description: 'Desarrollamos proyectos mediante comisiones interdisciplinarias con participación activa de la comunidad.',
+  },
+  {
+    step: '04',
+    title: 'Rendición de cuentas',
+    description: 'Publicamos detalladamente cada peso invertido y cada resultado obtenido para asegurar absoluta transparencia.',
   },
 ];
 ---
@@ -62,137 +84,315 @@ const valores = [
   title="Quiénes Somos"
   description="Conocé la Fundación Progreso y Filantropía Social: organización civil de carácter laico, plural, democrático e institucional."
 >
-  <!-- Hero -->
+  <!-- ========== HERO ========== -->
   <Hero
     variant="page"
     title="Una organización ciudadana al servicio de la comunidad"
     subtitle="Quiénes somos, qué principios nos guían y cuál es nuestro propósito en el tercer sector."
   />
 
-  <!-- 1. Presentación -->
-  <section class="bg-white py-20 md:py-28" data-animate>
-    <div class="max-w-4xl mx-auto px-6">
-      <SectionTitle
-        title="Nuestra identidad"
-        accentLine={true}
-        align="left"
-      />
-      <div class="prose max-w-none text-slate-600 leading-relaxed space-y-6 text-base md:text-lg">
-        <p>
-          <strong>Progreso y Filantropía Social</strong> es una organización ciudadana del tercer sector dedicada a edificar una ciudadanía activa, comprometida y empática en nuestra sociedad. Surgimos con la firme convicción de que los cambios profundos y sustentables nacen de la articulación fraterna, el diálogo constructivo y el bienestar compartido.
-        </p>
-        <p>
-          Nos definimos categóricamente como una institución <strong>laica, plural, democrática, republicana y apartidaria</strong>. No dependemos de estructuras políticas coyunturales ni de intereses religiosos singulares. Valoramos la diversidad ideológica y la pluralidad de opiniones como la principal riqueza colectiva.
-        </p>
-        <p>
-          Trabajamos para revincular el tejido social, promoviendo espacios donde cada persona pueda desarrollarse integralmente, expresarse en plena libertad y colaborar activamente en el fortalecimiento democrático de su entorno vecinal e institucional.
-        </p>
+  <!-- ========== 1. PRESENTACIÓN — Editorial ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 gradient-mesh-subtle pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-900/10 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Text -->
+        <div class="lg:col-span-7">
+          <div class="flex items-center gap-2.5 mb-8">
+            <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+            <div class="w-2 h-1 bg-slate-300 rounded-full"></div>
+            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">Nuestra identidad</span>
+          </div>
+          <SectionTitle
+            title="Construimos ciudadanía desde el territorio"
+            accentLine={false}
+            align="left"
+          />
+
+          <blockquote class="relative my-8 pl-6 border-l-[3px] border-slate-300">
+            <p class="text-lg md:text-xl font-serif italic text-slate-700 leading-relaxed">
+              Los cambios profundos y sustentables nacen de la articulación fraterna, el diálogo constructivo y el bienestar compartido.
+            </p>
+          </blockquote>
+
+          <div class="text-slate-600 leading-relaxed space-y-4">
+            <p>
+              <strong class="text-slate-900 font-display">Progreso y Filantropía Social</strong> es una organización ciudadana del tercer sector dedicada a edificar una ciudadanía activa, comprometida y empática en nuestra sociedad.
+            </p>
+            <p>
+              Nos definimos como una institución <strong class="text-slate-900">laica, plural, democrática, republicana y apartidaria</strong>. No dependemos de estructuras políticas coyunturales ni de intereses religiosos singulares. Valoramos la diversidad ideológica y la pluralidad de opiniones como la principal riqueza colectiva.
+            </p>
+            <p>
+              Trabajamos para revincular el tejido social, promoviendo espacios donde cada persona pueda desarrollarse integralmente, expresarse en plena libertad y colaborar activamente en el fortalecimiento democrático de su entorno.
+            </p>
+          </div>
+
+          <div class="mt-10 pt-8 border-t border-slate-100">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 mb-5">Nos define</h4>
+            <div class="flex flex-wrap gap-2.5">
+              {principios.map((p) => (
+                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200/70 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 cursor-default">
+                  <span class="text-sm" aria-hidden="true">{p.icon}</span>
+                  <span>{p.label}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="lg:col-span-5">
+          <div class="relative group">
+            <div class="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border-2 border-slate-900/10 pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -inset-4 bg-gradient-to-tr from-slate-900/[0.06] to-slate-400/[0.04] rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50">
+              <div class="aspect-[4/5] w-full bg-slate-100 relative">
+                <img
+                  src="/images/home-about.png"
+                  alt="Equipo de Progreso y Filantropía Social trabajando en comunidad"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-900/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+              </div>
+            </div>
+            <!-- Floating detail -->
+            <div class="absolute -bottom-3 -left-3 bg-white shadow-lg shadow-slate-200/60 rounded-2xl px-5 py-3.5 border border-slate-100" aria-hidden="true">
+              <p class="text-2xl font-extrabold font-display text-slate-900 leading-none">2019</p>
+              <p class="text-[11px] font-medium text-slate-500 mt-0.5">Año de fundación</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. Misión y Visión -->
-  <section class="bg-slate-50 py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
-      <!-- Misión -->
-      <div class="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-action-light text-action rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h2 class="text-2xl font-extrabold text-slate-900 mb-4">Nuestra Misión</h2>
-          <p class="text-slate-600 leading-relaxed text-base">
-            Construir ciudadanía participativa mediante campañas solidarias, talleres de formación cívica y proyectos territoriales concretos. Buscamos empoderar al ciudadano común como un actor protagónico de la transformación social, fortaleciendo los lazos comunitarios y afianzando una convivencia pacífica.
-          </p>
-        </div>
-      </div>
+  <!-- ========== 2. MISIÓN Y VISIÓN ========== -->
+  <section class="relative bg-slate-50/40 py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/60 to-transparent" aria-hidden="true"></div>
 
-      <!-- Visión -->
-      <div class="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-action-light text-action rounded-xl flex items-center justify-center mb-6" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-          <h2 class="text-2xl font-extrabold text-slate-900 mb-4">Nuestra Visión</h2>
-          <p class="text-slate-600 leading-relaxed text-base">
-            Consolidarnos como una institución del tercer sector de referencia a nivel nacional, reconocida por su absoluta transparencia, rigurosidad ética y capacidad para congregar a los diversos actores sociales en pos del bien común. Imaginamos una sociedad más democrática, fraterna y participativa.
-          </p>
-        </div>
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+          Propósito
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+        </span>
       </div>
-    </div>
-  </section>
-
-  <!-- 3. Principios -->
-  <section class="bg-white py-16 border-b border-slate-100" data-animate>
-    <div class="max-w-7xl mx-auto px-6 text-center">
       <SectionTitle
-        title="Principios institucionales"
-        subtitle="Los pilares no negociables que definen nuestra estructura y toma de decisiones."
+        title="Misión y Visión"
+        subtitle="Nuestro horizonte de trabajo y la transformación que buscamos impulsar."
         align="center"
       />
-      <div class="mt-8">
-        <TrustBadge items={principios} />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-14">
+        <!-- Misión card -->
+        <div class="group relative bg-white border border-slate-200/60 rounded-2xl overflow-hidden card-hover" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px -4px rgba(0,0,0,0.06);">
+          <div class="absolute top-0 inset-x-0 h-1 bg-slate-900" aria-hidden="true"></div>
+          <div class="p-8 md:p-10">
+            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold font-display text-slate-900 mb-4">Nuestra Misión</h2>
+            <p class="text-slate-600 leading-relaxed">
+              Construir ciudadanía participativa mediante campañas solidarias, talleres de formación cívica y proyectos territoriales concretos. Buscamos empoderar al ciudadano común como actor protagónico de la transformación social, fortaleciendo los lazos comunitarios y afianzando una convivencia pacífica.
+            </p>
+          </div>
+        </div>
+
+        <!-- Visión card -->
+        <div class="group relative bg-white border border-slate-200/60 rounded-2xl overflow-hidden card-hover" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px -4px rgba(0,0,0,0.06);">
+          <div class="absolute top-0 inset-x-0 h-1 bg-slate-400" aria-hidden="true"></div>
+          <div class="p-8 md:p-10">
+            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold font-display text-slate-900 mb-4">Nuestra Visión</h2>
+            <p class="text-slate-600 leading-relaxed">
+              Consolidarnos como una institución del tercer sector de referencia a nivel nacional, reconocida por su absoluta transparencia, rigurosidad ética y capacidad para congregar a los diversos actores sociales en pos del bien común. Imaginamos una sociedad más democrática, fraterna y participativa.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Valores -->
-  <section class="bg-slate-50 py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- ========== 3. PRINCIPIOS — Marquee ========== -->
+  <section class="bg-white py-8 border-b border-slate-100/80 overflow-hidden" aria-label="Principios institucionales">
+    <TrustBadge items={principios} />
+  </section>
+
+  <!-- ========== 4. VALORES — Interactive Cards ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" id="valores-section" data-animate>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(15,23,42,0.03)_0%,transparent_60%)] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+          Virtudes cívicas
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+        </span>
+      </div>
       <SectionTitle
         title="Nuestros valores"
         subtitle="Creemos que una comunidad virtuosa se construye cultivando virtudes cívicas compartidas."
         align="center"
       />
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {valores.map((valor) => (
-          <ValueCard
-            title={valor.title}
-            description={valor.description}
-            icon={valor.icon}
-          />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mt-14">
+        {valores.map((valor, idx) => (
+<article
+            class="group relative bg-white border border-slate-200/60 rounded-2xl p-6 overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-500"
+            style={`animation: card-qs-reveal 0.5s cubic-bezier(0.16,1,0.3,1) both; animation-delay: ${idx * 60}ms;`}
+          >
+            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+
+            <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-slate-900 group-hover:shadow-lg group-hover:scale-105">
+              <img
+                src={valor.image}
+                alt={valor.title}
+                class="w-6 h-6 object-contain brightness-0 group-hover:brightness-0 group-hover:invert transition-all duration-500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <h3 class="text-base font-bold font-display text-slate-900 mb-2 group-hover:text-slate-900 transition-colors duration-300">
+              {valor.title}
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              {valor.description}
+            </p>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 5. Forma de trabajo -->
-  <section class="bg-white py-20 md:py-28" data-animate>
-    <div class="max-w-4xl mx-auto px-6">
-      <SectionTitle
-        title="Cómo trabajamos"
-        accentLine={true}
-        align="left"
-      />
-      <div class="prose max-w-none text-slate-600 leading-relaxed space-y-6 text-base">
+  <style>
+    .value-card-qs {
+      animation: card-qs-reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--delay);
+    }
+
+    @keyframes card-qs-reveal {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .value-card-qs:hover {
+      box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+
+  <script is:inline>
+    if ('IntersectionObserver' in window) {
+      const cards = document.querySelectorAll('.value-card-qs');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.style.animationPlayState = 'running';
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      cards.forEach((c) => {
+        c.style.animationPlayState = 'paused';
+        obs.observe(c);
+      });
+    }
+  </script>
+
+  <!-- ========== 5. CÓMO TRABAJAMOS — Process Steps ========== -->
+  <section class="relative bg-slate-50/40 py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 gradient-mesh-subtle pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-2.5 mb-6">
+          <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+          <div class="w-2 h-1 bg-slate-300 rounded-full"></div>
+          <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">Metodología</span>
+        </div>
+        <SectionTitle
+          title="Cómo trabajamos"
+          subtitle="Un esquema horizontal, transparente y articulado con el territorio."
+          accentLine={false}
+          align="left"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+        {pasosDeTrabajo.map((paso, i) => (
+          <div class="group relative bg-white border border-slate-200/60 rounded-2xl p-7 overflow-hidden card-hover" style={`--delay: ${i * 100}ms; animation: card-qs-reveal 0.5s cubic-bezier(0.16,1,0.3,1) both; animation-delay: ${i * 100}ms;`}>
+            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+
+            <!-- Step number -->
+            <div class="text-5xl font-extrabold font-display text-slate-900/[0.08] leading-none mb-4 select-none" aria-hidden="true">
+              {paso.step}
+            </div>
+
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2 group-hover:text-slate-700 transition-colors duration-300">
+              {paso.title}
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              {paso.description}
+            </p>
+
+            <!-- Connector line (except last) -->
+            {i < pasosDeTrabajo.length - 1 && (
+              <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-slate-200" aria-hidden="true"></div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div class="prose max-w-none text-slate-600 leading-relaxed text-base mt-12 max-w-3xl">
         <p>
-          En <strong>Progreso y Filantropía Social</strong> rechazamos los esquemas piramidales u opacos de gestión. Trabajamos mediante un esquema de <strong>desarrollo horizontal e interdisciplinar</strong>, organizando comisiones específicas de trabajo según la índole de cada iniciativa (salud, educación, cultura, medioambiente).
-        </p>
-        <p>
-          Privilegiamos la <strong>red de alianzas</strong>. Entendemos que una fundación no debe competir con el Estado ni con otras asociaciones, sino servir de nexo cooperativo. Vinculamos el conocimiento académico de universidades con el empuje de organizaciones barriales para formular proyectos sustentables y eficientes.
+          En <strong class="text-slate-900">Progreso y Filantropía Social</strong> rechazamos los esquemas piramidales u opacos de gestión. Privilegiamos la <strong class="text-slate-900">red de alianzas</strong> y entendemos que una fundación debe servir de nexo cooperativo, vinculando el conocimiento académico con el empuje de las organizaciones barriales.
         </p>
         <p>
           Cada peso e insumo que ingresa a la fundación se audita periódicamente y se publica detalladamente en nuestra plataforma. El compromiso comunitario exige reciprocidad y absoluta claridad ética.
         </p>
       </div>
+
+      <div class="mt-8">
+        <a
+          href="/transparencia/"
+          class="group inline-flex items-center gap-2.5 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/15 active:bg-slate-950 transition-all duration-300"
+        >
+          Ver informes de transparencia
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- 6. CTA final -->
-  <section class="bg-slate-50 py-20 md:py-28 border-t border-slate-100" data-animate>
-    <div class="max-w-4xl mx-auto px-6 text-center">
+  <!-- ========== 6. CTA FINAL ========== -->
+  <section class="bg-white py-24 md:py-32 border-t border-slate-100" data-animate>
+    <div class="max-w-4xl mx-auto px-6">
       <DonationCTA
         variant="inline"
         title="Sumá tu esfuerzo al progreso comunitario"
         description="Si compartís nuestros valores de libertad, igualdad y fraternidad cívica, tu aporte económico o participación activa son vitales."
       />
-      <div class="mt-8 text-sm">
-        ¿Tenés preguntas o propuestas? <a href="/contacto/" class="text-action font-semibold hover:underline">Contactate con nosotros</a>
+      <div class="mt-8 text-center text-sm text-slate-500">
+        ¿Tenés preguntas o propuestas? <a href="/contacto/" class="text-slate-900 font-semibold hover:underline hover:text-slate-700 transition-colors">Contactate con nosotros</a>
       </div>
     </div>
   </section>

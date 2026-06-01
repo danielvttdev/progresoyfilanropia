@@ -4,6 +4,7 @@ interface Props {
   subtitle?: string;
   align?: 'left' | 'center';
   accentLine?: boolean;
+  overline?: string;
 }
 
 const {
@@ -11,18 +12,29 @@ const {
   subtitle,
   align = 'center',
   accentLine = false,
+  overline,
 } = Astro.props;
 ---
 
 <div class={`mb-12 ${align === 'center' ? 'text-center' : 'text-left'}`}>
   {accentLine && (
-    <div class={`w-12 h-1 bg-action rounded-full mb-6 ${align === 'center' ? 'mx-auto' : ''}`}></div>
+    <div class={`flex items-center gap-2 mb-6 ${align === 'center' ? 'justify-center' : ''}`}>
+      <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+      <div class="w-2 h-1 bg-slate-300 rounded-full"></div>
+    </div>
   )}
-  <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+  {overline && (
+    <div class={`flex items-center gap-2.5 mb-4 ${align === 'center' ? 'justify-center' : ''}`}>
+      <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+      <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">{overline}</span>
+      <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+    </div>
+  )}
+  <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-bold font-display text-slate-900 tracking-tight leading-tight text-balance">
     {title}
   </h2>
   {subtitle && (
-    <p class={`text-lg text-slate-600 mt-4 max-w-2xl ${align === 'center' ? 'mx-auto' : ''}`}>
+    <p class={`text-lg text-slate-500 mt-4 max-w-2xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>
       {subtitle}
     </p>
   )}

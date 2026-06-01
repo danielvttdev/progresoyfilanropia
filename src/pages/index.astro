@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-// Component imports
 import Hero from '../components/Hero.astro';
 import TrustBadge from '../components/TrustBadge.astro';
 import SectionTitle from '../components/SectionTitle.astro';
@@ -12,10 +11,6 @@ import ProjectCard from '../components/ProjectCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import DonationCTA from '../components/DonationCTA.astro';
 import ImpactStats from '../components/ImpactStats.astro';
-
-// ============================================
-// DATA — Static arrays for home page sections
-// ============================================
 
 const principios = [
   { label: 'Laica', icon: '⚖️' },
@@ -29,50 +24,44 @@ const valores = [
   {
     title: 'Libertad',
     description: 'Defendemos la libertad individual y colectiva como base de toda convivencia democrática y del desarrollo humano integral.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m-8-9H3m18 0h-1m-2.636-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>`,
+    image: '/images/icons/libertad.svg',
     impact: 'Impulsamos la autonomía de los ciudadanos en la gestión de sus propios proyectos y emprendimientos de impacto comunitario.',
     kpi: '100% Autogestión cívica',
-    color: 'from-blue-500/20 to-indigo-500/10',
   },
   {
     title: 'Igualdad',
     description: 'Trabajamos por una sociedad donde todas las personas tengan las mismas oportunidades de desarrollo y participación.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 18h18" /></svg>`,
+    image: '/images/icons/igualdad.svg',
     impact: 'Aseguramos acceso libre y equitativo a todas nuestras actividades formativas, de debate cívico y de contención social barrial.',
     kpi: 'Acceso universal y plural',
-    color: 'from-teal-500/20 to-emerald-500/10',
   },
   {
     title: 'Fraternidad',
     description: 'Creemos en los lazos fraternos como motor de la cooperación, el cuidado mutuo y la construcción de comunidad.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    image: '/images/icons/fraternidad.svg',
     impact: 'Fomentamos la ayuda mutua voluntaria y el asociacionismo vecinal coordinado ante problemáticas sanitarias y económicas.',
     kpi: '+1.200 Vecinos vinculados',
-    color: 'from-rose-500/20 to-orange-500/10',
   },
   {
     title: 'Transparencia',
     description: 'Promovemos una gestión abierta, con rendición de cuentas permanente y comunicación clara de nuestras acciones y recursos.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    image: '/images/icons/transparencia.svg',
     impact: 'Publicamos balances anuales, actas constitutivas y detalles contables auditados por profesionales del tercer sector.',
     kpi: 'Balances 100% públicos',
-    color: 'from-cyan-500/20 to-sky-500/10',
   },
   {
     title: 'Libertad de expresión',
     description: 'Valoramos el diálogo abierto y el libre intercambio de ideas como pilares de una democracia sana y participativa.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>`,
+    image: '/images/icons/expresion.svg',
     impact: 'Impulsamos debates plurales, foros vecinales abiertos y transmisiones en streaming que integran todas las opiniones ciudadanas.',
     kpi: 'Diálogo democrático',
-    color: 'from-violet-500/20 to-purple-500/10',
   },
   {
     title: 'Respeto por todas las opiniones',
     description: 'Creamos espacios donde cada voz es escuchada con atención, promoviendo la pluralidad como riqueza colectiva.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>`,
+    image: '/images/icons/respeto.svg',
     impact: 'Articulamos mesas de concertación pluralista y democrática para consensuar soluciones territoriales de forma participativa.',
     kpi: 'Pluralismo activo',
-    color: 'from-amber-500/20 to-yellow-500/10',
   },
 ];
 
@@ -110,11 +99,11 @@ const proyectosDestacados = [
 ];
 
 const redDeCooperacion = [
-  { label: 'Universidades', icon: '🎓' },
-  { label: 'Asociaciones civiles', icon: '🏢' },
-  { label: 'Fundaciones', icon: '🤝' },
-  { label: 'Entidades sin fines de lucro', icon: '💡' },
-  { label: 'Organizaciones comunitarias', icon: '🏘️' },
+  { label: 'Universidades', icon: '🎓', desc: 'Convenios académicos, pasantías e investigación aplicada para el desarrollo territorial.' },
+  { label: 'Asociaciones civiles', icon: '🏢', desc: 'Alianzas con organizaciones del tercer sector para ampliar el impacto social en el territorio.' },
+  { label: 'Fundaciones', icon: '🤝', desc: 'Cooperación interinstitucional con fundaciones nacionales e internacionales.' },
+  { label: 'Entidades sin fines de lucro', icon: '💡', desc: 'Articulación de recursos y saberes con organizaciones de la sociedad civil.' },
+  { label: 'Organizaciones comunitarias', icon: '🏘️', desc: 'Trabajo directo con agrupaciones barriales y vecinales para soluciones locales.' },
 ];
 
 const metricas = [
@@ -124,9 +113,6 @@ const metricas = [
   { value: '12', label: 'Proyectos activos' },
 ];
 
-// ============================================
-// BLOG — Get latest 3 posts from Content Collection
-// ============================================
 const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
 const latestPosts = allPosts
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
@@ -147,7 +133,7 @@ const categoryLabels: Record<string, string> = {
   description="Fundación Progreso y Filantropía Social: organización ciudadana del tercer sector que construye ciudadanía activa, participativa y comprometida con el bienestar general."
 >
 
-  <!-- 1. HERO -->
+  <!-- ========== 1. HERO ========== -->
   <Hero
     variant="home"
     showPattern={true}
@@ -157,43 +143,59 @@ const categoryLabels: Record<string, string> = {
     ctaSecondary={{ label: 'Donar', href: '/donar/' }}
     ctaTertiary={{ label: 'Involúcrate', href: '/contacto/' }}
   >
-    <div class="mt-16 pt-10 border-t border-white/10">
+    <div class="mt-16 pt-10 border-t border-white/[0.08]">
       <ImpactStats stats={metricas} variant="dark" />
     </div>
   </Hero>
 
-  <!-- 2. BLOQUE DE CONFIANZA — Principios -->
-  <section class="bg-white py-12 border-b border-slate-100 animate-fade-in" aria-label="Principios institucionales">
-    <div class="max-w-7xl mx-auto px-6">
-      <TrustBadge items={principios} />
-    </div>
+  <!-- ========== 2. PRINCIPIOS — Marquee ========== -->
+  <section class="bg-white py-8 border-b border-slate-100/80 overflow-hidden" aria-label="Principios institucionales">
+    <TrustBadge items={principios} />
   </section>
 
-  <!-- 3. QUIÉNES SOMOS — Resumen -->
-  <section class="bg-white py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Text content -->
+  <!-- ========== 3. QUIÉNES SOMOS — Editorial Asymmetric ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 gradient-mesh-subtle pointer-events-none" aria-hidden="true"></div>
+    <!-- Decorative accent line -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-action/10 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Text column -->
         <div class="lg:col-span-7">
+          <div class="flex items-center gap-2.5 mb-8">
+            <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+            <div class="w-2 h-1 bg-slate-300 rounded-full"></div>
+            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Sobre nosotros</span>
+          </div>
           <SectionTitle
             title="Una fundación ciudadana al servicio del bien común"
-            accentLine={true}
+            accentLine={false}
             align="left"
           />
-          <div class="prose max-w-none text-slate-600 leading-relaxed text-base space-y-6">
+
+          <!-- Pull quote -->
+          <blockquote class="relative my-8 pl-6 border-l-[3px] border-slate-900">
+            <p class="text-lg md:text-xl font-serif italic text-slate-700 leading-relaxed">
+              Construimos ciudadanía activa, participativa, empática y con fuerte compromiso comunitario.
+            </p>
+          </blockquote>
+
+          <div class="text-slate-600 leading-relaxed space-y-4">
             <p>
-              Progreso y Filantropía Social es una organización del tercer sector que trabaja para construir ciudadanía activa, participativa, empática y con fuerte compromiso comunitario. Nuestro objetivo es fortalecer la convivencia pacífica, los lazos fraternos, el bienestar general y el desarrollo integral de cada individuo.
+              Progreso y Filantropía Social es una organización del tercer sector que trabaja para fortalecer la convivencia pacífica, los lazos fraternos, el bienestar general y el desarrollo integral de cada individuo.
             </p>
             <p>
               Somos una institución laica, plural, democrática, republicana y apartidaria. Promovemos la cooperación entre personas, organizaciones e instituciones para amplificar el impacto de cada acción solidaria.
             </p>
           </div>
-          <div class="mt-8 pt-6 border-t border-slate-100">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Nuestras áreas de incidencia cívica:</h4>
+
+          <div class="mt-10 pt-8 border-t border-slate-100">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400 mb-5">Nuestras áreas de incidencia cívica</h4>
             <div class="flex flex-wrap gap-2.5">
               {areasDeImpacto.map((area) => (
-                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-slate-150 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors">
-                  <span aria-hidden="true">{area.icon}</span>
+                <div class="group inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200/70 rounded-full text-xs font-semibold text-slate-600 hover:bg-action-light hover:text-action hover:border-action/20 hover:shadow-sm transition-all duration-300 cursor-default">
+                  <span class="text-sm group-hover:scale-110 transition-transform duration-300" aria-hidden="true">{area.icon}</span>
                   <span>{area.label}</span>
                 </div>
               ))}
@@ -202,24 +204,39 @@ const categoryLabels: Record<string, string> = {
           <div class="mt-8">
             <a
               href="/quienes-somos/"
-              class="inline-flex items-center gap-1.5 text-sm text-action font-semibold hover:text-action-hover transition-colors group"
+              class="group inline-flex items-center gap-2.5 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/15 active:bg-slate-950 transition-all duration-300"
             >
               Conocé más sobre nosotros
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
         </div>
-        <!-- Concept image -->
+
+        <!-- Image column — editorial treatment -->
         <div class="lg:col-span-5">
-          <div class="relative bg-slate-50 border border-slate-200 rounded-3xl p-2 shadow-sm overflow-hidden group">
-            <div class="aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 relative">
-              <img
-                src="/images/home-about.png"
-                alt="Imagen de cooperación y unión vecinal, Fundación Progreso y Filantropía Social"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-              />
+          <div class="relative group">
+            <!-- Decorative offset frame -->
+            <div class="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border-2 border-action/10 pointer-events-none" aria-hidden="true"></div>
+            <!-- Glow -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-slate-900/[0.04] to-slate-500/[0.03] rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50">
+              <div class="aspect-[4/5] w-full bg-slate-100 relative">
+                <img
+                  src="/images/home-about.png"
+                  alt="Imagen de cooperación y unión vecinal, Fundación Progreso y Filantropía Social"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <!-- Bottom gradient -->
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-900/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+              </div>
+            </div>
+            <!-- Floating detail -->
+            <div class="absolute -bottom-3 -left-3 bg-white shadow-lg shadow-slate-200/60 rounded-2xl px-5 py-3.5 border border-slate-100" aria-hidden="true">
+              <p class="text-2xl font-extrabold font-display text-slate-900 leading-none">+1.200</p>
+              <p class="text-[11px] font-medium text-slate-500 mt-0.5">Personas alcanzadas</p>
             </div>
           </div>
         </div>
@@ -227,194 +244,135 @@ const categoryLabels: Record<string, string> = {
     </div>
   </section>
 
-  <!-- 4. VALORES INSTITUCIONALES (Minimalist Interactive Dashboard) -->
-  <section class="bg-slate-50 py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- ========== 4. VALORES INSTITUCIONALES ========== -->
+  <section class="relative bg-slate-50/40 py-24 md:py-32 overflow-hidden" id="valores-section" data-animate>
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+          Nuestro fundamento ético
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+        </span>
+      </div>
       <SectionTitle
-        title="Nuestros valores cívicos"
-        subtitle="Un marco ético en acción constante. Seleccioná un pilar para ver cómo orienta nuestro trabajo."
+        title="Valores que orientan nuestra acción"
+        subtitle="Los pilares sobre los que construimos una ciudadanía activa, solidaria y comprometida con el bienestar general."
         align="center"
       />
 
-      <!-- Dashboard Wrapper -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mt-12 items-stretch">
-        
-        <!-- Left Side: Interactive Menu List (Responsive: Horizontal scroll on mobile, Vertical list on desktop) -->
-        <div class="lg:col-span-4 flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-2.5 lg:gap-3 hide-scrollbar snap-x scroll-smooth select-none">
-          {valores.map((valor, idx) => (
-            <button
-              type="button"
-              class={`value-tab-btn flex items-center justify-between p-3.5 lg:p-4.5 rounded-xl border text-left transition-all duration-200 cursor-pointer snap-start shrink-0 whitespace-nowrap lg:whitespace-normal ${
-                idx === 0
-                  ? 'bg-white border-action/30 shadow-sm text-slate-900 ring-2 ring-action/5'
-                  : 'bg-white/50 border-slate-200/60 text-slate-500 hover:bg-white hover:border-slate-350 hover:shadow-xs'
-              }`}
-              data-value-idx={idx}
-            >
-              <div class="flex items-center gap-3 lg:gap-3.5">
-                <div class={`w-8 h-8 lg:w-9 lg:h-9 rounded-lg flex items-center justify-center transition-colors ${
-                  idx === 0 ? 'bg-action-light text-action' : 'bg-slate-100 text-slate-500'
-                } value-tab-icon-wrapper`}>
-                  <Fragment set:html={valor.icon} />
-                </div>
-                <span class="font-bold text-xs lg:text-sm tracking-wide">{valor.title}</span>
-              </div>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class={`hidden lg:block w-3.5 h-3.5 transition-transform duration-200 ${idx === 0 ? 'translate-x-0.5 text-action' : 'text-slate-400'} value-tab-arrow`}
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor" 
-                stroke-width="2.5"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          ))}
-        </div>
-
-        <!-- Right Side: Detail Panel (8/12 columns) -->
-        <div class="lg:col-span-8">
-          <div 
-            id="value-detail-card"
-            class="h-full bg-white border border-slate-200/80 rounded-2.5xl p-6 lg:p-8 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[340px] lg:min-h-[360px] transition-all duration-300"
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mt-14">
+        {valores.map((valor, idx) => (
+          <article
+            class="group relative bg-white border border-slate-200/60 rounded-2xl overflow-hidden card-hover flex flex-col"
+            style={`animation: val-reveal 0.5s cubic-bezier(0.16,1,0.3,1) both; animation-delay: ${idx * 80}ms;`}
           >
-            <!-- Lighter, ultra-minimalist glowing backdrop spot -->
-            <div 
-              id="value-detail-glow"
-              class="absolute top-[-30%] right-[-20%] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-500/10 to-transparent blur-[100px] transition-all duration-500 pointer-events-none"
-            ></div>
-
-            <!-- Card Header -->
-            <div class="relative z-10">
-              <div class="flex items-center justify-between gap-4 border-b border-slate-105 pb-4">
-                <div class="flex items-center gap-3">
-                  <div 
-                    id="value-detail-icon"
-                    class="w-11 h-11 bg-action-light text-action rounded-xl flex items-center justify-center"
-                  >
-                    <Fragment set:html={valores[0].icon} />
-                  </div>
-                  <div class="text-left">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Pilar Cívico</span>
-                    <h3 id="value-detail-title" class="text-xl font-bold text-slate-900 mt-0.5 tracking-tight">{valores[0].title}</h3>
-                  </div>
+            <div class="p-7 flex flex-col flex-grow">
+              <!-- Icon + title -->
+              <div class="flex items-start gap-4 mb-4">
+                <div class="shrink-0 w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:shadow-lg transition-all duration-500">
+                  <img
+                    src={valor.image}
+                    alt={valor.title}
+                    class="w-6 h-6 object-contain brightness-0 group-hover:brightness-0 group-hover:invert transition-all duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-                
-                <!-- KPI Status Pill -->
-                <div class="px-3 py-1 bg-slate-50 border border-slate-200/60 rounded-full text-[10px] font-bold text-slate-600 shadow-2xs" id="value-detail-kpi">
-                  {valores[0].kpi}
+                <div class="min-w-0 flex-1">
+                  <h3 class="text-lg font-bold font-display text-slate-900 leading-tight group-hover:text-slate-900 transition-colors duration-300">
+                    {valor.title}
+                  </h3>
+                  <span class="inline-flex items-center mt-1 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500 bg-slate-100">
+                    {valor.kpi}
+                  </span>
                 </div>
               </div>
 
-              <!-- Main Content Body -->
-              <div class="mt-6 space-y-5 text-left">
-                <div>
-                  <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Definición</h4>
-                  <p id="value-detail-desc" class="text-slate-600 leading-relaxed text-sm lg:text-base">
-                    {valores[0].description}
-                  </p>
-                </div>
+              <!-- Description -->
+              <p class="text-sm text-slate-500 leading-relaxed flex-grow">
+                {valor.description}
+              </p>
 
-                <div>
-                  <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Acción cívica</h4>
-                  <p id="value-detail-impact" class="text-slate-550 leading-relaxed text-xs lg:text-sm">
-                    {valores[0].impact}
+              <!-- Bottom link -->
+              <div class="pt-5 mt-auto border-t border-slate-100">
+                <button
+                  type="button"
+                  class="val-toggle w-full flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-slate-900 transition-colors duration-200"
+                  aria-label={`Ver más sobre ${valor.title}`}
+                  data-idx={idx}
+                >
+                  <span class="val-toggle-text">Ver impacto</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 val-chevron transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Expandable impact -->
+              <div class="val-impact overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" style="max-height: 0; opacity: 0;">
+                <div class="pt-4 mt-4 border-t border-slate-100">
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    <strong class="text-slate-900">En acción:</strong> {valor.impact}
                   </p>
                 </div>
               </div>
             </div>
-
-            <!-- Minimalist Card Footer -->
-            <div class="relative z-10 border-t border-slate-100 pt-5 mt-6 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="flex h-2 w-2 relative">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span class="text-[10px] font-bold text-slate-400 tracking-wide">Auditoría y control ciudadano permanente</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Client-side Interactive Script -->
-  <script is:inline define:vars={{ valores }}>
+  <style>
+    @keyframes val-reveal {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-      const tabBtns = document.querySelectorAll('.value-tab-btn');
-      const detailCard = document.getElementById('value-detail-card');
-      const glowSpot = document.getElementById('value-detail-glow');
-      const detailIcon = document.getElementById('value-detail-icon');
-      const detailTitle = document.getElementById('value-detail-title');
-      const detailDesc = document.getElementById('value-detail-desc');
-      const detailImpact = document.getElementById('value-detail-impact');
-      const detailKpi = document.getElementById('value-detail-kpi');
-
-      if (!tabBtns.length || !detailCard) return;
-
-      tabBtns.forEach((btn) => {
+      document.querySelectorAll('.val-toggle').forEach((btn) => {
         btn.addEventListener('click', () => {
-          const idx = parseInt(btn.getAttribute('data-value-idx') || '0', 10);
-          const data = valores[idx];
+          const card = btn.closest('article');
+          const impact = card.querySelector('.val-impact');
+          const chevron = btn.querySelector('.val-chevron');
+          const textEl = btn.querySelector('.val-toggle-text');
+          const isOpen = impact.style.maxHeight !== '0px' && impact.style.maxHeight !== '';
 
-          if (!data) return;
+          // close all first
+          document.querySelectorAll('.val-impact').forEach(el => { el.style.maxHeight = '0px'; el.style.opacity = '0'; });
+          document.querySelectorAll('.val-chevron').forEach(el => el.style.transform = '');
+          document.querySelectorAll('.val-toggle-text').forEach(el => el.textContent = 'Ver impacto');
 
-          // 1. Update Active states in Left Menu list
-          tabBtns.forEach((b) => {
-            b.classList.remove('bg-white', 'border-action/30', 'shadow-md', 'text-slate-900', 'ring-2', 'ring-action/5');
-            b.classList.add('bg-white/50', 'border-slate-200/60', 'text-slate-500');
-            b.querySelector('.value-tab-icon-wrapper').classList.remove('bg-action-light', 'text-action');
-            b.querySelector('.value-tab-icon-wrapper').classList.add('bg-slate-100', 'text-slate-500');
-            b.querySelector('.value-tab-arrow').classList.remove('translate-x-0.5', 'text-action');
-            b.querySelector('.value-tab-arrow').classList.add('text-slate-400');
-          });
-
-          btn.classList.remove('bg-white/50', 'border-slate-200/60', 'text-slate-500');
-          btn.classList.add('bg-white', 'border-action/30', 'shadow-sm', 'text-slate-900', 'ring-2', 'ring-action/5');
-          btn.querySelector('.value-tab-icon-wrapper').classList.remove('bg-slate-100', 'text-slate-500');
-          btn.querySelector('.value-tab-icon-wrapper').classList.add('bg-action-light', 'text-action');
-          btn.querySelector('.value-tab-arrow').classList.add('translate-x-0.5', 'text-action');
-          btn.querySelector('.value-tab-arrow').classList.remove('text-slate-400');
-
-          // 2. Play transition animation in detail card
-          detailCard.style.opacity = '0';
-          detailCard.style.transform = 'translateY(4px)';
-
-          setTimeout(() => {
-            // Update Card Details
-            detailTitle.textContent = data.title;
-            detailDesc.textContent = data.description;
-            detailImpact.textContent = data.impact;
-            detailKpi.textContent = data.kpi;
-            detailIcon.innerHTML = data.icon;
-
-            // Update glowing color class
-            glowSpot.className = `absolute top-[-30%] right-[-20%] w-[300px] h-[300px] rounded-full bg-gradient-to-br ${data.color} blur-[100px] transition-all duration-500 pointer-events-none`;
-
-            // Fade in card content
-            detailCard.style.opacity = '1';
-            detailCard.style.transform = 'translateY(0)';
-          }, 100);
+          if (!isOpen) {
+            impact.style.maxHeight = '200px';
+            impact.style.opacity = '1';
+            chevron.style.transform = 'rotate(180deg)';
+            textEl.textContent = 'Cerrar';
+          }
         });
       });
     });
   </script>
 
-  <!-- 7. PROYECTOS DESTACADOS -->
-  <section class="bg-white py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- ========== 7. PROYECTOS DESTACADOS ========== -->
+  <section class="relative bg-slate-50/40 py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-action/70">
+          <span class="w-6 h-px bg-action/30" aria-hidden="true"></span>
+          Impacto en acción
+          <span class="w-6 h-px bg-action/30" aria-hidden="true"></span>
+        </span>
+      </div>
       <SectionTitle
         title="Proyectos destacados"
         subtitle="Iniciativas que transforman realidades y fortalecen el tejido comunitario."
         align="center"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {proyectosDestacados.map((proyecto) => (
           <ProjectCard
             title={proyecto.title}
@@ -427,13 +385,13 @@ const categoryLabels: Record<string, string> = {
         ))}
       </div>
 
-      <div class="text-center mt-10">
+      <div class="text-center mt-12">
         <a
           href="/proyectos/"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
+          class="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/20 active:bg-slate-950 transition-all duration-300"
         >
           Ver todos los proyectos
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -441,68 +399,325 @@ const categoryLabels: Record<string, string> = {
     </div>
   </section>
 
-  <!-- 8. RED DE COOPERACIÓN (Diseño Asimétrico Premium) -->
-  <section class="bg-white py-20 md:py-28 border-t border-slate-100" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Columna Izquierda: Información de Alianza -->
-        <div class="lg:col-span-5">
+<!-- ========== 8. RED DE COOPERACIÓN — Interactive Premium ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" id="red-section" data-animate>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/60 to-transparent"></div>
+      <div class="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-slate-900/[0.02] blur-[160px]"></div>
+      <div class="absolute bottom-[10%] right-[-8%] w-[400px] h-[400px] rounded-full bg-slate-500/[0.02] blur-[120px]"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <!-- Left: copy + CTA -->
+        <div class="lg:col-span-5 lg:sticky lg:top-28">
+          <div class="flex items-center gap-2.5 mb-6">
+            <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+            <div class="w-2 h-1 bg-slate-300 rounded-full"></div>
+            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Cooperación</span>
+          </div>
           <SectionTitle
             title="Trabajo articulado en red"
-            accentLine={true}
+            accentLine={false}
             align="left"
           />
-          <p class="text-slate-600 leading-relaxed text-base mt-6">
-            Entendemos la cooperación horizontal como el único camino viable para construir respuestas de impacto social sustentable en el territorio. Articulamos esfuerzos con universidades, asociaciones civiles y agrupaciones comunitarias barriales.
-          </p>
-          <div class="mt-8">
+          <div class="text-slate-600 leading-relaxed text-base space-y-4 mt-6">
+            <p>
+              Entendemos la cooperación horizontal como el único camino viable para construir respuestas de impacto social sustentable en el territorio.
+            </p>
+            <p>
+              Articulamos esfuerzos con universidades, asociaciones civiles y agrupaciones comunitarias barriales para multiplicar el alcance de cada iniciativa.
+            </p>
+          </div>
+
+          <!-- Animated network visualization -->
+          <div class="relative mt-8 mb-2 flex items-center justify-center" aria-hidden="true">
+            <div class="red-network-node absolute w-3 h-3 bg-white rounded-full shadow-lg shadow-white/30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 animate-pulse"></div>
+            <svg id="red-network-svg" class="absolute inset-0 w-full h-full" viewBox="0 0 200 120"></svg>
+            <div class="w-32 h-20"></div>
+          </div>
+
+          <div class="mt-4">
             <a
               href="/red-de-cooperacion/"
-              class="inline-flex items-center gap-1.5 text-sm text-action font-semibold hover:text-action-hover transition-colors group"
+              class="group inline-flex items-center gap-2.5 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/15 active:bg-slate-950 transition-all duration-300"
             >
               Conocé nuestra red de cooperación
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
         </div>
 
-        <!-- Columna Derecha: Tarjetas Compactas -->
+        <!-- Right: interactive bento cards -->
         <div class="lg:col-span-7">
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {redDeCooperacion.map((org) => (
-              <div class="flex flex-col items-center gap-3 p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:bg-white hover:shadow-md hover:border-slate-200 hover:-translate-y-1 transition-all duration-300 animate-hover-scale">
-                <span class="text-2xl" aria-hidden="true">{org.icon}</span>
-                <span class="text-xs font-semibold text-slate-700 text-center leading-tight">{org.label}</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-5" id="red-cards-grid">
+            {redDeCooperacion.map((org, i) => (
+              <div
+                class={`network-card group relative flex flex-col items-center gap-3 p-6 sm:p-7 bg-white border border-slate-200/60 rounded-2xl overflow-hidden transition-all duration-500 cursor-default`}
+                data-card-idx={i}
+                data-accent={org.accent || '#3B5FD4'}
+                style={`--delay: ${i * 80}ms`}
+              >
+                <!-- Hover gradient border -->
+                <div class="absolute inset-0 rounded-2xl p-[1px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={`background: linear-gradient(135deg, #3B5FD4, color-mix(in srgb, #3B5FD4 30%, transparent)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px; border-radius: 1rem;`}></div>
+
+                <!-- Static border -->
+                <div class="absolute inset-0 rounded-2xl border border-slate-200/60 transition-all duration-500 group-hover:border-transparent pointer-events-none"></div>
+
+                <!-- Hover bg -->
+                <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="background: linear-gradient(135deg, rgba(59, 95, 212, 0.06) 0%, white 70%);"></div>
+
+                <!-- Active expanded backdrop -->
+                <div class="network-card-backdrop absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-300 opacity-0" style="background: linear-gradient(135deg, rgba(59, 95, 212, 0.1) 0%, white 40%);"></div>
+
+                <!-- Mouse-follow glow -->
+                <div class="network-card-glow absolute w-[250px] h-[250px] rounded-full pointer-events-none opacity-0 transition-opacity duration-300" style="background: radial-gradient(circle, rgba(59, 95, 212, 0.12) 0%, transparent 70%); filter: blur(40px); transform: translate(-50%, -50%); z-index: 0;"></div>
+
+                <!-- Top accent line -->
+                <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-action/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+
+                <div class="relative z-10 flex flex-col items-center gap-3">
+                  <!-- Icon circle -->
+<div class="relative w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center transition-all duration-500 group-hover:bg-slate-900 group-hover:shadow-lg group-hover:shadow-slate-900/10 group-hover:scale-105">
+                  <span class="text-2xl group-hover:scale-110 transition-transform duration-300" aria-hidden="true">{org.icon}</span>
+                  </div>
+
+                  <span class="text-xs font-bold text-slate-700 text-center leading-snug tracking-wide group-hover:text-action transition-colors duration-300">{org.label}</span>
+
+                  <!-- Expandable description -->
+                  <div class="network-card-desc overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] max-h-0 opacity-0">
+                    <p class="text-[11px] text-slate-500 leading-relaxed text-center mt-1 pt-2 border-t border-slate-100" style="border-color: rgba(59, 95, 212, 0.1);">
+                      {org.desc}
+                    </p>
+                  </div>
+
+                  <!-- Expand toggle -->
+                  <button
+                    type="button"
+                    class="network-card-toggle flex items-center gap-1 text-[10px] font-semibold text-slate-400 hover:text-action transition-colors duration-200 mt-1"
+                    aria-label={`Más sobre ${org.label}`}
+                  >
+                    <span class="network-card-toggle-text">Ver más</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 network-card-chevron transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             ))}
+
+            <!-- Center connection hub card (spans 2 on sm, 3 on lg) -->
+            <div class="col-span-2 sm:col-span-3 group relative flex items-center gap-5 p-6 bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300">
+              <div class="relative z-10 flex items-center gap-4 w-full">
+                <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 1014.172 5.656l1.102-1.101m-1.102-5.656a4 4 0 00-5.656 0l-1.1 1.1" />
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h4 class="text-sm font-bold font-display text-slate-900">+30 organizaciones aliadas</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">Articulamos esfuerzos para multiplicar el impacto social en el territorio.</p>
+                </div>
+                <a
+                  href="/red-de-cooperacion/"
+                  class="group/btn shrink-0 w-10 h-10 rounded-xl bg-action text-white flex items-center justify-center shadow-md shadow-action/20 hover:bg-action-hover hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
+                  aria-label="Ver red de cooperación"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover/btn:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. TRANSPARENCIA E IMPACTO -->
-  <section class="bg-institutional py-20 md:py-28 border-t border-slate-900 text-white" data-animate>
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <SectionTitle
-        title="Transparencia e impacto"
-        subtitle="Rendimos cuentas porque creemos en la confianza como base de toda relación institucional."
-        align="center"
-      />
-      
-      <p class="text-base md:text-lg text-slate-350 mt-6 max-w-2xl mx-auto leading-relaxed">
-        Garantizamos una gestión transparente publicando de forma continua nuestros balances contables, actas de asamblea e informes de actividades. Cada aporte de la ciudadanía se vincula de manera directa a metas concretas en el territorio.
+  <style>
+    .network-card {
+      animation: card-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--delay);
+      will-change: transform;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes card-reveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+        filter: blur(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .network-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -12px rgba(59, 95, 212, 0.1);
+    }
+
+    .network-card.is-expanded .network-card-desc {
+      max-height: 120px !important;
+      opacity: 1 !important;
+    }
+
+    .network-card.is-expanded .network-card-chevron {
+      transform: rotate(180deg);
+    }
+
+    .network-card.is-expanded .network-card-toggle-text {
+      display: none;
+    }
+
+    .network-card.is-expanded .network-card-backdrop {
+      opacity: 1;
+    }
+  </style>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.network-card');
+
+      // --- Click to expand/collapse ---
+      cards.forEach((card) => {
+        const toggle = card.querySelector('.network-card-toggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const wasExpanded = card.classList.contains('is-expanded');
+          cards.forEach((c) => c.classList.remove('is-expanded'));
+          if (!wasExpanded) {
+            card.classList.add('is-expanded');
+          }
+        });
+      });
+
+      // --- Mouse-follow glow ---
+      cards.forEach((card) => {
+        const glow = card.querySelector('.network-card-glow');
+        if (!glow) return;
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          glow.style.left = x + 'px';
+          glow.style.top = y + 'px';
+          glow.style.opacity = '1';
+        });
+
+        card.addEventListener('mouseleave', () => {
+          glow.style.opacity = '0';
+        });
+      });
+
+      // --- Staggered scroll reveal ---
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = 'running';
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        cards.forEach((card) => {
+          card.style.animationPlayState = 'paused';
+          observer.observe(card);
+        });
+      }
+
+      // --- Animated network SVG ---
+      const svg = document.getElementById('red-network-svg');
+      if (svg) {
+        const cx = 100, cy = 60;
+        const nodes = [
+          { angle: -90, dist: 40, label: '' },
+          { angle: -30, dist: 40, label: '' },
+          { angle: 30, dist: 40, label: '' },
+          { angle: 90, dist: 40, label: '' },
+          { angle: 150, dist: 40, label: '' },
+          { angle: 210, dist: 40, label: '' },
+        ];
+
+        let linesHTML = '';
+        let dotsHTML = '';
+
+        nodes.forEach((node, i) => {
+          const rad = (node.angle * Math.PI) / 180;
+          const x = cx + Math.cos(rad) * node.dist;
+          const y = cy + Math.sin(rad) * node.dist;
+
+          linesHTML += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(15,23,42,0.15)" stroke-width="1" stroke-dasharray="3,3"><animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="${2 + i * 0.3}s" repeatCount="indefinite" /></line>`;
+          dotsHTML += `<circle cx="${x}" cy="${y}" r="3" fill="currentColor" class="text-slate-400" opacity="0.3"><animate attributeName="r" values="2;4;2" dur="${2 + i * 0.2}s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.2;0.5;0.2" dur="${2 + i * 0.2}s" repeatCount="indefinite" /></circle>`;
+        });
+
+        // Center node
+        dotsHTML += `<circle cx="${cx}" cy="${cy}" r="5" fill="currentColor" class="text-slate-600" opacity="0.5"><animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" /></circle>`;
+
+        // Outer connection lines between nodes
+        for (let i = 0; i < nodes.length; i++) {
+          const next = (i + 1) % nodes.length;
+          const rad1 = (nodes[i].angle * Math.PI) / 180;
+          const rad2 = (nodes[next].angle * Math.PI) / 180;
+          const x1 = cx + Math.cos(rad1) * nodes[i].dist;
+          const y1 = cy + Math.sin(rad1) * nodes[i].dist;
+          const x2 = cx + Math.cos(rad2) * nodes[next].dist;
+          const y2 = cy + Math.sin(rad2) * nodes[next].dist;
+          linesHTML += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(15,23,42,0.06)" stroke-width="1" />`;
+        }
+
+        svg.innerHTML = linesHTML + dotsHTML;
+      }
+    });
+  </script>
+
+  <!-- ========== 9. TRANSPARENCIA E IMPACTO ========== -->
+  <section class="relative bg-institutional py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/[0.06] blur-[160px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute bottom-[-15%] left-[-5%] w-[400px] h-[400px] rounded-full bg-indigo-500/[0.04] blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <!-- Shield badge -->
+      <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/[0.06] backdrop-blur-xl text-slate-400 border border-white/[0.08] mb-10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        Compromiso con la transparencia
+      </div>
+
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-white tracking-tight leading-tight">
+        Transparencia e <em class="not-italic font-serif">impacto</em>
+      </h2>
+
+      <!-- Pull quote -->
+      <blockquote class="mt-8 mx-auto max-w-2xl">
+        <p class="text-xl md:text-2xl font-serif italic text-white/80 leading-relaxed">
+          "Rendimos cuentas porque creemos en la confianza como base de toda relación institucional."
+        </p>
+      </blockquote>
+
+      <p class="text-base md:text-lg text-slate-400 mt-6 max-w-2xl mx-auto leading-relaxed">
+        Garantizamos una gestión transparente publicando de forma continua nuestros balances contables, actas de asamblea e informes de actividades.
       </p>
 
       <div class="text-center mt-10">
         <a
           href="/transparencia/"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white text-sm font-semibold rounded-lg hover:bg-white/10 transition-all duration-200"
+          class="group inline-flex items-center gap-2.5 px-8 py-4 border border-white/20 bg-white/[0.06] backdrop-blur-sm text-white text-sm font-semibold rounded-xl hover:bg-white/[0.12] hover:border-white/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
         >
           Ver informes de transparencia
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -510,9 +725,16 @@ const categoryLabels: Record<string, string> = {
     </div>
   </section>
 
-  <!-- 10. ÚLTIMAS NOTICIAS — Blog (Content Collection) -->
-  <section class="bg-slate-50 py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- ========== 10. ÚLTIMAS NOTICIAS ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-action/70">
+          <span class="w-6 h-px bg-action/30" aria-hidden="true"></span>
+          Actualidad
+          <span class="w-6 h-px bg-action/30" aria-hidden="true"></span>
+        </span>
+      </div>
       <SectionTitle
         title="Últimas novedades"
         subtitle="Noticias, reflexiones y avances de nuestro trabajo en el territorio."
@@ -520,7 +742,7 @@ const categoryLabels: Record<string, string> = {
       />
 
       {latestPosts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {latestPosts.map((post) => (
             <BlogCard
               title={post.data.title}
@@ -529,6 +751,7 @@ const categoryLabels: Record<string, string> = {
               date={post.data.pubDate}
               slug={post.id}
               author={post.data.author}
+              image={post.data.image}
             />
           ))}
         </div>
@@ -536,13 +759,13 @@ const categoryLabels: Record<string, string> = {
         <p class="text-center text-slate-500">Próximamente publicaremos nuestras novedades.</p>
       )}
 
-      <div class="text-center mt-10">
+      <div class="text-center mt-12">
         <a
           href="/blog/"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:bg-white hover:border-slate-400 transition-all duration-200"
+          class="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/20 active:bg-slate-950 transition-all duration-300"
         >
           Ver todas las novedades
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -550,7 +773,7 @@ const categoryLabels: Record<string, string> = {
     </div>
   </section>
 
-  <!-- 11. LLAMADO A LA ACCIÓN FINAL (DONACIONES) -->
+  <!-- ========== 11. DONACIONES ========== -->
   <DonationCTA variant="banner" />
 
 </BaseLayout>

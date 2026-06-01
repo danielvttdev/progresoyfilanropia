@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Expression Symbol: Sound waves / megaphone -->
+  <path d="M22 46v-12h8l12-8v28l-12-8h-8z" fill="url(#neutral-grad-subtle)" opacity="0.3"/>
+  <path d="M22 46v-12h8l12-8v28l-12-8h-8z" stroke="url(#neutral-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Sound waves radiating out -->
+  <path d="M49 30c3 3 5 7 5 10s-2 7-5 10" stroke="url(#neutral-grad)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M56 24c5.5 5 8.5 11 8.5 16s-3 11-8.5 16" stroke="url(#neutral-grad-subtle)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M63 18c8 7 12.5 15.5 12.5 22s-4.5 15-12.5 22" stroke="url(#neutral-grad-subtle)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Handle -->
+  <path d="M32 46v8a3 3 0 01-3 3h-2" stroke="url(#neutral-grad)" stroke-width="2" stroke-linecap="round"/>
+</svg>

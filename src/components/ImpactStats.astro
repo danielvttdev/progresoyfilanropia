@@ -13,19 +13,27 @@ const { stats, variant = 'light' } = Astro.props;
 ---
 
 {variant === 'dark' ? (
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-    {stats.map((stat) => (
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm transition-transform duration-300 hover:scale-102">
-        <p class="text-3xl md:text-4xl font-bold text-white tracking-tight">{stat.value}</p>
-        <p class="text-sm text-slate-400 mt-2 font-medium">{stat.label}</p>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+    {stats.map((stat, i) => (
+      <div
+        class="group relative rounded-2xl p-6 text-center backdrop-blur-sm transition-all duration-500 overflow-hidden"
+        style={`background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); animation-delay: ${i * 80}ms;`}
+      >
+        <div class="absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent rounded-2xl pointer-events-none" aria-hidden="true"></div>
+        <p class="text-3xl md:text-4xl font-extrabold font-display text-white tracking-tight relative z-10 group-hover:scale-[1.03] transition-transform duration-300">
+          {stat.value}
+        </p>
+        <p class="text-sm text-slate-400 mt-2 font-medium relative z-10">{stat.label}</p>
       </div>
     ))}
   </div>
 ) : (
   <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
     {stats.map((stat) => (
-      <div class="text-center p-4">
-        <p class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">{stat.value}</p>
+      <div class="text-center p-5 group">
+        <p class="text-3xl md:text-4xl font-extrabold font-display text-slate-900 tracking-tight group-hover:text-action transition-colors duration-300">
+          {stat.value}
+        </p>
         <p class="text-sm text-slate-500 mt-2 font-medium">{stat.label}</p>
       </div>
     ))}

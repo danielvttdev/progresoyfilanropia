@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Fraternity Symbol: Interlocking Rings/Hands -->
+  <circle cx="33" cy="40" r="14" stroke="url(#neutral-grad-subtle)" stroke-width="3" opacity="0.3"/>
+  <circle cx="47" cy="40" r="14" stroke="url(#neutral-grad)" stroke-width="3"/>
+  
+  <!-- Heart shape overlap in center representing unity and fraternity -->
+  <path d="M40 34.5c.8-1.5 2.5-2.5 4.5-2.5 2.8 0 5 2.2 5 5 0 3.8-5.5 8-9.5 10.5-4-2.5-9.5-6.7-9.5-10.5 0-2.8 2.2-5 5-5 2 0 3.7 1 4.5 2.5z" fill="url(#neutral-grad)" fill-rule="evenodd" clip-rule="evenodd"/>
+  
+  <!-- Sleek support line -->
+  <path d="M22 60c6 3 14 4 22 4 6 0 11-1 14-2.5" stroke="url(#neutral-grad-subtle)" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Cooperation Symbol: Collaborative interlocking nodes/circles -->
+  <path d="M40 22a6 6 0 100 12 6 6 0 000-12zM25 44a6 6 0 100 12 6 6 0 000-12zM55 44a6 6 0 100 12 6 6 0 000-12z" fill="url(#neutral-grad)"/>
+  
+  <!-- Connecting lines -->
+  <line x1="40" y1="34" x2="28" y2="44" stroke="url(#neutral-grad-subtle)" stroke-width="2.5" stroke-dasharray="3 3"/>
+  <line x1="40" y1="34" x2="52" y2="44" stroke="url(#neutral-grad-subtle)" stroke-width="2.5" stroke-dasharray="3 3"/>
+  <line x1="28" y1="50" x2="52" y2="50" stroke="url(#neutral-grad)" stroke-width="3"/>
+  
+  <!-- Support base/cradle indicating a network -->
+  <path d="M18 56c5 6 13 10 22 10s17-4 22-10" stroke="url(#neutral-grad-subtle)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Center hub node -->
+  <circle cx="40" cy="48" r="4" fill="white" stroke="url(#neutral-grad)" stroke-width="2"/>
+</svg>

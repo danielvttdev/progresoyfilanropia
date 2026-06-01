@@ -1,22 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 @import "tailwindcss";
 
 /* ============================================
    CUSTOM THEME — Tailwind CSS 4
+   Editorial Design System: Cabinet Grotesk + DM Sans
    ============================================ */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Cabinet Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
 
-  --color-base: #F8FAFC;
+  --color-base: #FAFBFD;
   --color-surface: #FFFFFF;
-  --color-institutional: #111827;
-  --color-institutional-light: #1F2937;
+  --color-institutional: #0C1222;
+  --color-institutional-light: #162032;
 
-  --color-action: #2A54FF;
-  --color-action-hover: #1D44E6;
-  --color-action-active: #1435BF;
-  --color-action-light: #F0F4FF;
-  --color-action-light-hover: #E0E8FF;
+  --color-action: #3B5FD4;
+  --color-action-hover: #2E4FBA;
+  --color-action-active: #23409F;
+  --color-action-light: #EEF1FB;
+  --color-action-light-hover: #DDE4F8;
+
+  --color-warm-50: #FFFBF5;
+  --color-warm-100: #FFF5E8;
+  --color-warm-200: #FFE8C8;
+
+  --spacing-18: 4.5rem;
 }
 
 /* ============================================
@@ -36,12 +45,12 @@
   }
 
   ::selection {
-    background-color: var(--color-action-light-hover);
-    color: var(--color-action);
+    background-color: #0F172A;
+    color: #FFFFFF;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-action);
+    outline: 2px solid #0F172A;
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -77,8 +86,45 @@
   to { opacity: 1; }
 }
 
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .animate-fade-up {
-  animation: fade-up 0.6s ease-out forwards;
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in-up {
@@ -90,29 +136,30 @@
   animation: fade-in 0.5s ease-out forwards;
 }
 
-.animation-delay-100 {
-  animation-delay: 100ms;
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animation-delay-200 {
-  animation-delay: 200ms;
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animation-delay-300 {
-  animation-delay: 300ms;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-.animation-delay-400 {
-  animation-delay: 400ms;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
-.animation-delay-500 {
-  animation-delay: 500ms;
-}
-
-.animation-delay-600 {
-  animation-delay: 600ms;
-}
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+.animation-delay-800 { animation-delay: 800ms; }
 
 [data-animate] {
   opacity: 0;
@@ -127,6 +174,43 @@
 }
 
 /* ============================================
+   PREMIUM GLASSMORPHISM
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.glass-dark {
+  background: rgba(12, 18, 34, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   GRADIENT MESH BACKGROUNDS
+   ============================================ */
+.gradient-mesh-light {
+  background:
+    radial-gradient(at 20% 20%, rgba(15, 23, 42, 0.04) 0%, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(15, 23, 42, 0.03) 0%, transparent 50%);
+}
+
+.gradient-mesh-subtle {
+  background:
+    radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.03) 0%, transparent 40%),
+    radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.02) 0%, transparent 40%);
+}
+
+/* ============================================
    PROSE STYLES (Blog posts)
    ============================================ */
 .prose p {
@@ -135,6 +219,7 @@
 }
 
 .prose h2 {
+  font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 700;
   color: #0F172A;
@@ -143,6 +228,7 @@
 }
 
 .prose h3 {
+  font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 600;
   color: #0F172A;
@@ -161,7 +247,7 @@
 }
 
 .prose blockquote {
-  border-left: 4px solid var(--color-action);
+  border-left: 4px solid #0F172A;
   padding-left: 1.5rem;
   font-style: italic;
   color: #475569;
@@ -192,4 +278,108 @@
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ============================================
+   PREMIUM CARD HOVER EFFECTS
+   ============================================ */
+.card-hover {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.1),
+              0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+/* ============================================
+   VALUE CARDS — Handled in component <style>
+   ============================================ */
+
+/* ============================================
+   SHIMMER LOADING / PREMIUM HIGHLIGHT
+   ============================================ */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
+}
+
+/* ============================================
+   SMOOTH SCROLL ANIMATIONS (JS-driven)
+   ============================================ */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ============================================
+   ACCESSIBILITY: prefers-reduced-motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+  }
+
+  .animate-ping {
+    animation: none !important;
+  }
+
+  .animate-bounce {
+    animation: none !important;
+  }
+
+  .value-card {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   TYPE SCALE — Editorial System
+   ============================================ */
+.font-display {
+  font-family: var(--font-display);
 }

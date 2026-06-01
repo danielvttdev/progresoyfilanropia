@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Transparency Symbol: Crystal/Prism letting light through -->
+  <polygon points="40,16 60,34 50,62 30,62 20,34" fill="url(#neutral-grad-subtle)" opacity="0.15"/>
+  <polygon points="40,16 60,34 50,62 30,62 20,34" stroke="url(#neutral-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Inner geometric facets -->
+  <line x1="40" y1="16" x2="40" y2="62" stroke="url(#neutral-grad)" stroke-width="1.5"/>
+  <line x1="20" y1="34" x2="40" y2="34" stroke="url(#neutral-grad)" stroke-width="1.5"/>
+  <line x1="60" y1="34" x2="40" y2="34" stroke="url(#neutral-grad)" stroke-width="1.5"/>
+  <line x1="30" y1="62" x2="40" y2="34" stroke="url(#neutral-grad)" stroke-width="1.5"/>
+  <line x1="50" y1="62" x2="40" y2="34" stroke="url(#neutral-grad)" stroke-width="1.5"/>
+  
+  <!-- Inner high contrast spark of absolute transparency -->
+  <circle cx="40" cy="34" r="3" fill="white"/>
+  <circle cx="40" cy="34" r="1.5" fill="#0f172a"/>
+</svg>

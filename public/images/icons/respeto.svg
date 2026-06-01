@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="neutral-grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="neutral-grad-subtle" x1="40" y1="10" x2="40" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="80" height="80" rx="20" fill="url(#neutral-grad)" opacity="0.06"/>
+  
+  <!-- Respect Symbol: Respectful overlapping speech bubbles -->
+  <!-- Left/Under bubble -->
+  <path d="M46 48c0 6-5.5 11-12 11-1.5 0-3-.3-4.5-1l-6.5 3.5 1.5-6.5c-3-2-4.5-5-4.5-8 0-6 5.5-11 12-11s12 5 12 11z" fill="url(#neutral-grad-subtle)" opacity="0.3"/>
+  <path d="M46 48c0 6-5.5 11-12 11-1.5 0-3-.3-4.5-1l-6.5 3.5 1.5-6.5c-3-2-4.5-5-4.5-8 0-6 5.5-11 12-11s12 5 12 11z" stroke="url(#neutral-grad-subtle)" stroke-width="2" stroke-linejoin="round"/>
+  
+  <!-- Right/Over bubble (main dialogue) -->
+  <path d="M62 34c0 7-6.5 13-14.5 13-1.8 0-3.5-.3-5-1l-8 4.5 2-8c-3.5-2.5-5.5-5.8-5.5-9.5 0-7 6.5-13 14.5-13S62 27 62 34z" fill="white" stroke="url(#neutral-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Respect handshake or heart motif inside main bubble -->
+  <path d="M47.5 31.5c.4-.8 1.2-1.3 2.2-1.3 1.4 0 2.5 1 2.5 2.4 0 1.9-2.7 4-4.7 5.2-2-1.2-4.7-3.3-4.7-5.2 0-1.4 1.1-2.4 2.5-2.4.9 0 1.7.5 2.2 1.3z" fill="url(#neutral-grad)"/>
+</svg>
