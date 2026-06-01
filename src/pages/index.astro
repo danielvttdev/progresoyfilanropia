@@ -137,16 +137,19 @@ const categoryLabels: Record<string, string> = {
   <Hero
     variant="home"
     showPattern={true}
-    title="Construimos ciudadanía activa para fortalecer la convivencia social"
-    subtitle="Desde el tercer sector impulsamos acciones solidarias, educativas y participativas orientadas al bienestar general, la cooperación comunitaria y el desarrollo de cada persona."
+    title="Impulsamos la ciudadanía activa para fortalecer la convivencia y la cohesión social"
+    subtitle="Desde el tercer sector fomentamos la participación ciudadana, la transparencia cívica y la cooperación territorial, construyendo puentes para el bienestar general y el progreso de cada persona."
     ctaPrimary={{ label: 'Conocé nuestros proyectos', href: '/proyectos/' }}
     ctaSecondary={{ label: 'Donar', href: '/donar/' }}
     ctaTertiary={{ label: 'Involúcrate', href: '/contacto/' }}
-  >
-    <div class="mt-16 pt-10 border-t border-white/[0.08]">
+  />
+
+  <!-- ========== HERO STATS ========== -->
+  <section class="relative bg-institutional border-t border-white/[0.06] py-10 md:py-14" data-animate>
+    <div class="relative max-w-7xl mx-auto px-6">
       <ImpactStats stats={metricas} variant="dark" />
     </div>
-  </Hero>
+  </section>
 
   <!-- ========== 2. PRINCIPIOS — Marquee ========== -->
   <section class="bg-white py-8 border-b border-slate-100/80 overflow-hidden" aria-label="Principios institucionales">

@@ -9,26 +9,54 @@ const aliados = [
     title: 'Universidades',
     emoji: '🎓',
     description: 'Convenios de cooperación y asistencia técnica con instituciones académicas públicas y privadas para validación y desarrollo de metodologías sociales.',
+    stat: 'Convenios activos',
   },
   {
     title: 'Asociaciones civiles',
     emoji: '🏢',
     description: 'Trabajo conjunto con organizaciones de la sociedad civil locales para abordar problemáticas territoriales complejas coordinando recursos.',
+    stat: 'Articulación territorial',
   },
   {
     title: 'Fundaciones',
     emoji: '🤝',
     description: 'Alianzas bilaterales y multilaterales con fundaciones nacionales e internacionales orientadas a causas comunes de bienestar social.',
+    stat: 'Alianzas estratégicas',
   },
   {
     title: 'Organizaciones comunitarias',
     emoji: '🏘️',
     description: 'Articulación horizontal directa con comisiones de vecinos, centros de fomento y comedores para diseñar acciones con pertinencia territorial.',
+    stat: 'Trabajo en territorio',
   },
   {
     title: 'Entidades sin fines de lucro',
     emoji: '💡',
     description: 'Cooperación con instituciones científicas, técnicas y de investigación del tercer sector para incorporar innovación a la gestión.',
+    stat: 'Innovación social',
+  },
+];
+
+const pasos = [
+  {
+    num: '01',
+    title: 'Diagnóstico compartido',
+    description: 'Identificamos las necesidades del territorio junto con los actores locales, estableciendo objetivos y metas comunes.',
+  },
+  {
+    num: '02',
+    title: 'Co-diseño de intervención',
+    description: 'Diseñamos el proyecto de manera colaborativa, definiendo roles, recursos y cronogramas con transparencia desde el inicio.',
+  },
+  {
+    num: '03',
+    title: 'Ejecución coordinada',
+    description: 'Desarrollamos el proyecto con comisiones de trabajo interdisciplinarias, combinando saberes académicos y comunitarios.',
+  },
+  {
+    num: '04',
+    title: 'Evaluación y rendición',
+    description: 'Medimos impacto, compartimos resultados y publicamos balances para asegurar absoluta transparencia con todos los actores.',
   },
 ];
 ---
@@ -37,84 +65,344 @@ const aliados = [
   title="Red de Cooperación"
   description="Fundación Progreso y Filantropía Social: alianzas estratégicas, red de cooperación institucional y trabajo comunitario coordinado."
 >
-  <!-- Hero -->
   <Hero
     variant="page"
     title="Trabajamos en red para ampliar el impacto social"
     subtitle="Creemos en la cooperación horizontal como la única vía para abordar desafíos comunitarios estructurales."
+    backgroundImage="/images/cooperacion-hero.png"
   />
 
-  <!-- Por qué cooperamos -->
-  <section class="bg-white py-16 md:py-24" data-animate>
-    <div class="max-w-4xl mx-auto px-6">
-      <SectionTitle
-        title="La fuerza del impacto colectivo"
-        accentLine={true}
-        align="left"
-      />
-      <div class="prose max-w-none text-slate-600 leading-relaxed text-base md:text-lg space-y-6">
-        <p>
-          Ninguna organización, por más sólida que sea, puede resolver de forma aislada las complejas problemáticas sociales, sanitarias, educativas y económicas del tercer sector. Por eso, en <strong>Progreso y Filantropía Social</strong>, consideramos que la cooperación en red es un <strong>principio estratégico fundamental</strong>.
-        </p>
-        <p>
-          Bajo una filosofía de articulación horizontal y democrática, actuamos como un puente de vinculación activa. Conectamos los saberes y la rigurosidad científica de las universidades, los recursos operativos de fundaciones aliadas y el dinamismo vital de las asociaciones barriales para potenciar el alcance de cada campaña e intervención.
-        </p>
+  <!-- ========== POR QUÉ COOPERAMOS ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 gradient-mesh-subtle pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/60 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div class="lg:col-span-7">
+          <div class="flex items-center gap-2.5 mb-6">
+            <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+            <div class="w-2 h-1 bg-slate-300 rounded-full"></div>
+            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Filosofía</span>
+          </div>
+          <SectionTitle
+            title="La fuerza del impacto colectivo"
+            accentLine={false}
+            align="left"
+          />
+          <div class="text-slate-600 leading-relaxed space-y-4 mt-6">
+            <p>
+              Ninguna organización, por más sólida que sea, puede resolver de forma aislada las complejas problemáticas sociales, sanitarias, educativas y económicas del tercer sector. Por eso, en <strong class="text-slate-900">Progreso y Filantropía Social</strong>, consideramos que la cooperación en red es un <strong class="text-slate-900">principio estratégico fundamental</strong>.
+            </p>
+            <p>
+              Bajo una filosofía de articulación horizontal y democrática, actuamos como un puente de vinculación activa. Conectamos los saberes y la rigurosidad científica de las universidades, los recursos operativos de fundaciones aliadas y el dinamismo vital de las asociaciones barriales para potenciar el alcance de cada campaña e intervención.
+            </p>
+          </div>
+
+          <blockquote class="relative my-10 pl-6 border-l-[3px] border-slate-900">
+            <p class="text-lg md:text-xl font-serif italic text-slate-700 leading-relaxed">
+              "La cooperación horizontal es el único camino viable para construir respuestas de impacto social sustentable en el territorio."
+            </p>
+          </blockquote>
+
+          <div class="flex flex-wrap gap-4 mt-8">
+            <div class="text-center px-5 py-4 bg-slate-50 border border-slate-200/60 rounded-xl">
+              <p class="text-2xl font-extrabold font-display text-slate-900">+30</p>
+              <p class="text-[11px] font-medium text-slate-500 mt-0.5">Organizaciones aliadas</p>
+            </div>
+            <div class="text-center px-5 py-4 bg-slate-50 border border-slate-200/60 rounded-xl">
+              <p class="text-2xl font-extrabold font-display text-slate-900">5</p>
+              <p class="text-[11px] font-medium text-slate-500 mt-0.5">Áreas de incidencia</p>
+            </div>
+            <div class="text-center px-5 py-4 bg-slate-50 border border-slate-200/60 rounded-xl">
+              <p class="text-2xl font-extrabold font-display text-slate-900">48</p>
+              <p class="text-[11px] font-medium text-slate-500 mt-0.5">Actividades realizadas</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual: premium team/cooperation photo -->
+        <div class="lg:col-span-5">
+          <div class="relative group">
+            <div class="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border-2 border-slate-900/10 pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -inset-4 bg-gradient-to-tr from-slate-900/[0.06] to-slate-400/[0.04] rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50">
+              <div class="aspect-[4/5] w-full bg-slate-100 relative">
+                <img
+                  src="/images/home-about.png"
+                  alt="Actores sociales cooperando en una mesa de trabajo en Buenos Aires"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-900/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+              </div>
+            </div>
+            <!-- Floating detail -->
+            <div class="absolute -bottom-3 -left-3 bg-white shadow-lg shadow-slate-200/60 rounded-2xl px-5 py-3.5 border border-slate-100" aria-hidden="true">
+              <p class="text-2xl font-extrabold font-display text-slate-900 leading-none">Articulación</p>
+              <p class="text-[11px] font-medium text-slate-500 mt-0.5">Horizontal y cívica</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Aliados institucionales -->
-  <section class="bg-slate-50 py-20 md:py-28" data-animate>
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- ========== CÓMO TRABAJAMOS ========== -->
+  <section class="relative bg-slate-50/40 py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+          Proceso
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+        </span>
+      </div>
       <SectionTitle
-        title="Nuestra Red de Aliados"
-        subtitle="Articulamos esfuerzos junto a actores de diversos ámbitos comprometidos con el progreso cívico."
+        title="Cómo trabajamos en red"
+        subtitle="Un esquema horizontal, transparente y articulado con el territorio."
         align="center"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12">
-        {aliados.map((aliado) => (
-          <div class="bg-white border border-slate-200 rounded-3xl p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <span class="text-4xl mb-4" aria-hidden="true">{aliado.emoji}</span>
-            <h3 class="text-base font-bold text-slate-900 mb-2">{aliado.title}</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">{aliado.description}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+        {pasos.map((paso, i) => (
+          <div class="group relative bg-white border border-slate-200/60 rounded-2xl p-7 overflow-hidden card-hover" style={`animation: net-reveal 0.5s cubic-bezier(0.16,1,0.3,1) both; animation-delay: ${i * 100}ms;`}>
+            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+            <div class="text-4xl font-extrabold font-display text-slate-100 leading-none mb-4 select-none" aria-hidden="true">{paso.num}</div>
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2 group-hover:text-slate-700 transition-colors duration-300">{paso.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{paso.description}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Cómo proponer una alianza -->
-  <section class="bg-white py-20 md:py-28" data-animate>
-    <div class="max-w-4xl mx-auto px-6 text-center">
+  <style>
+    @keyframes net-reveal {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <!-- ========== ALIADOS INSTITUCIONALES ========== -->
+  <section class="relative bg-white py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/60 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+          Red de alianzas
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+        </span>
+      </div>
       <SectionTitle
-        title="Proponé una alianza estratégica"
-        accentLine={true}
+        title="Nuestra Red de Aliados"
+        subtitle="Articulamos esfuerzos junto a actores de diversos ámbitos comprometidos con el progreso cívico."
         align="center"
       />
-      <div class="prose max-w-none text-slate-600 leading-relaxed text-base space-y-6">
-        <p>
-          ¿Sos parte de una cátedra universitaria, dirigís una asociación civil o gestionás proyectos de responsabilidad social empresarial en una corporación? Tu conocimiento y empuje pueden sumarse a nuestra infraestructura para generar un retorno social sumamente significativo.
-        </p>
-        <p class="text-slate-500">
-          Analizamos cada propuesta bajo parámetros de mutuo enriquecimiento, transparencia institucional e impacto medible. Diseñamos convenios específicos que delimitan responsabilidades técnicas y operativas de forma clara.
-        </p>
-        <div class="pt-8">
-          <a
-            href="/contacto/?motivo=alianza"
-            class="inline-flex items-center justify-center px-8 py-4 bg-action text-white text-sm font-semibold rounded-lg shadow-sm hover:bg-action-hover transition-all duration-200"
-          >
-            Proponer una alianza estratégica
-          </a>
-        </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+        {aliados.map((aliado, i) => (
+          <article class="group relative bg-white border border-slate-200/60 rounded-2xl p-7 overflow-hidden hover:shadow-lg hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-500" style={`animation: net-reveal 0.5s cubic-bezier(0.16,1,0.3,1) both; animation-delay: ${(i + 1) * 100}ms;`}>
+            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+
+            <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mb-5 group-hover:bg-slate-900 transition-all duration-500">
+              <span class="text-2xl group-hover:scale-110 transition-transform duration-300" aria-hidden="true">{aliado.emoji}</span>
+            </div>
+
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-3">{aliado.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">{aliado.description}</p>
+
+            <div class="pt-4 border-t border-slate-100">
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-slate-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                {aliado.stat}
+              </span>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA final -->
-  <section class="bg-slate-50 py-20 border-t border-slate-100" data-animate>
+  <!-- ========== PROYECTOS EXITOSOS EN ALIANZA ========== -->
+  <section class="relative bg-slate-50/40 py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 gradient-mesh-subtle pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200/60 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+          Resultados en red
+          <span class="w-6 h-px bg-slate-300" aria-hidden="true"></span>
+        </span>
+      </div>
+      <SectionTitle
+        title="Cooperación en acción"
+        subtitle="Conocé los proyectos cívicos y sociales que impulsamos de forma conjunta con nuestra red de aliados."
+        align="center"
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-14">
+        <!-- Caso 1 -->
+        <article class="group bg-white border border-slate-200/60 rounded-3xl overflow-hidden shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] w-full overflow-hidden relative bg-slate-100">
+              <img
+                src="/images/projects/talleres.png"
+                alt="Estudiantes y docentes universitarios en un taller de formación cívica"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-semibold text-white tracking-wide">
+                Alianza Universitaria
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold font-display text-slate-900 mb-3 group-hover:text-slate-800 transition-colors">
+                Talleres de Formación Cívica y Democrática
+              </h3>
+              <p class="text-sm text-slate-500 leading-relaxed">
+                Desarrollados de forma conjunta con cátedras de Derecho y Ciencias Sociales de universidades nacionales. Diseñamos módulos interactivos para formar a jóvenes líderes de barrios populares en herramientas jurídicas básicas, mecanismos de participación cívica y fortalecimiento institucional.
+              </p>
+            </div>
+          </div>
+          <div class="px-8 pb-8 pt-4 border-t border-slate-50 flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-400 uppercase tracking-wider">Metodología Académica</span>
+            <span class="font-semibold text-slate-900">+1,200 Jóvenes capacitados</span>
+          </div>
+        </article>
+
+        <!-- Caso 2 -->
+        <article class="group bg-white border border-slate-200/60 rounded-3xl overflow-hidden shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/10] w-full overflow-hidden relative bg-slate-100">
+              <img
+                src="/images/projects/acompanamiento.png"
+                alt="Madres y voluntarios en la red de acompañamiento escolar"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-semibold text-white tracking-wide">
+                Articulación Civil
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold font-display text-slate-900 mb-3 group-hover:text-slate-800 transition-colors">
+                Red de Acompañamiento Escolar y Apoyo Nutricional
+              </h3>
+              <p class="text-sm text-slate-500 leading-relaxed">
+                Articulamos recursos con fundaciones y asociaciones civiles de fomento barrial para sostener espacios de apoyo escolar primario, entrega de complementos alimenticios y talleres lúdicos. La fundación provee la coordinación pedagógica e insumos, mientras que los centros vecinales proveen el espacio y el arraigo social.
+              </p>
+            </div>
+          </div>
+          <div class="px-8 pb-8 pt-4 border-t border-slate-50 flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-400 uppercase tracking-wider">Cooperación Territorial</span>
+            <span class="font-semibold text-slate-900">8 Centros activos</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROPONÉ UNA ALIANZA ========== -->
+  <section class="relative bg-institutional py-24 md:py-32 overflow-hidden" data-animate>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-[-15%] right-[-8%] w-[400px] h-[400px] rounded-full bg-white/[0.03] blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-white/[0.06] backdrop-blur-xl text-white/60 border border-white/[0.08] mb-10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 1014.172 5.656l1.102-1.101m-1.102-5.656a4 4 0 00-5.656 0l-1.1 1.1" />
+        </svg>
+        Articulación
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-extrabold font-display text-white tracking-tight leading-tight">
+        Proponé una <em class="not-italic font-serif">alianza estratégica</em>
+      </h2>
+
+      <blockquote class="mt-8 mx-auto max-w-2xl">
+        <p class="text-xl md:text-2xl font-serif italic text-white/80 leading-relaxed">
+          "Analizamos cada propuesta bajo parámetros de mutuo enriquecimiento, transparencia institucional e impacto medible."
+        </p>
+      </blockquote>
+
+      <p class="text-base md:text-lg text-white/50 mt-6 max-w-2xl mx-auto leading-relaxed">
+        ¿Sos parte de una cátedra universitaria, dirigís una asociación civil o gestionás proyectos de responsabilidad social? Tu conocimiento y empuje pueden sumarse a nuestra infraestructura para generar un retorno social significativo.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+        <a
+          href="/contacto/?motivo=alianza"
+          class="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white text-institutional text-sm font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+        >
+          Proponer una alianza
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="/transparencia/"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 bg-white/[0.06] backdrop-blur-sm text-white text-sm font-semibold rounded-xl hover:bg-white/[0.12] hover:border-white/30 transition-all duration-300"
+        >
+          Ver informes de transparencia
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="bg-white py-24 md:py-32" data-animate>
     <div class="max-w-4xl mx-auto px-6">
       <DonationCTA variant="inline" />
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  const svg = document.getElementById('network-svg');
+  if (svg) {
+    const cx = 100, cy = 100;
+    const nodes = [
+      { angle: -90, dist: 55 },
+      { angle: -30, dist: 55 },
+      { angle: 30, dist: 55 },
+      { angle: 90, dist: 55 },
+      { angle: 150, dist: 55 },
+      { angle: 210, dist: 55 },
+    ];
+
+    let lines = '';
+    let dots = '';
+
+    nodes.forEach((node, i) => {
+      const rad = (node.angle * Math.PI) / 180;
+      const x = cx + Math.cos(rad) * node.dist;
+      const y = cy + Math.sin(rad) * node.dist;
+
+      lines += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(15,23,42,0.1)" stroke-width="1" stroke-dasharray="4,4"/>`;
+      dots += `<circle cx="${x}" cy="${y}" r="6" fill="white" stroke="#e2e8f0" stroke-width="2"><animate attributeName="r" values="5;7;5" dur="${3 + i * 0.4}s" repeatCount="indefinite"/></circle>`;
+    });
+
+    dots += `<circle cx="${cx}" cy="${cy}" r="10" fill="white" stroke="#0f172a" stroke-width="3"/>`;
+
+    for (let i = 0; i < nodes.length; i++) {
+      const next = (i + 1) % nodes.length;
+      const rad1 = (nodes[i].angle * Math.PI) / 180;
+      const rad2 = (nodes[next].angle * Math.PI) / 180;
+      const x1 = cx + Math.cos(rad1) * nodes[i].dist;
+      const y1 = cy + Math.sin(rad1) * nodes[i].dist;
+      const x2 = cx + Math.cos(rad2) * nodes[next].dist;
+      const y2 = cy + Math.sin(rad2) * nodes[next].dist;
+      lines += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(15,23,42,0.05)" stroke-width="1"/>`;
+    }
+
+    svg.innerHTML = lines + dots;
+    svg.setAttribute('viewBox', '0 0 200 200');
+  }
+</script>

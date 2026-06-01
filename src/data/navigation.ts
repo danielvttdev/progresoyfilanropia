@@ -8,6 +8,7 @@ export const mainNav: NavItem[] = [
   { label: 'Inicio', href: '/' },
   { label: 'Quiénes Somos', href: '/quienes-somos/' },
   { label: 'Proyectos', href: '/proyectos/' },
+  { label: 'Red de Cooperación', href: '/red-de-cooperacion/' },
   { label: 'Transparencia', href: '/transparencia/' },
   { label: 'Novedades', href: '/blog/' },
   { label: 'Contacto', href: '/contacto/' },
